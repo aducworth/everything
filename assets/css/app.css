@@ -1,0 +1,71 @@
+.critical .task-label, .critical .label {
+	background: #952715;
+}
+
+.high .task-label, .high .label {
+	background: #f26f21;
+}
+
+.medium .task-label, .medium .label   {
+	background: #f39f09;
+}
+
+.low .task-label, .low .label  {
+	background: #6da79b;
+}
+
+.critical a {
+	color: #952715;
+}
+
+.high a  {
+	color: #f26f21;
+}
+
+.medium a  {
+	color: #f39f09;
+}
+
+.low a  {
+	color: #6da79b;
+}
+
+.task-label {
+	display: block;
+	padding: 15px;
+	text-align: center;
+	border-radius: 10px;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.task-list, .task-filter {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.task-comments {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.due-date {
+	background: #952715;
+	color: #fff;
+	padding: 5px 15px;
+	margin-left: 5px;
+	border-radius: 10px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.task-review-sidebar, .task-review-mainbar {
+	padding: 40px 0;
+}
+
+.task-review-sidebar {
+	background: #E6E6E6;
+}
