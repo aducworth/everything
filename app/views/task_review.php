@@ -4,7 +4,9 @@
 			<span class='label'>#<?=$controller->result['id'] ?></span>		
 			<span class='label'><?=$controller->priorities[ $controller->result['priority'] ] ?></span>	
 			<span class='label'><?=$controller->statuses[ $controller->result['status'] ] ?></span>	
-			<span class='label'><?=date( 'M d', strtotime( $controller->result['due_date'] ) ) ?></span>	
+			<span class='label'><?=date( 'M d', strtotime( $controller->result['due_date'] ) ) ?></span><br><br>
+			
+			<a href='/task?id=<?=$controller->result['id'] ?>'>edit</a>	
 			
 			<h1><?=$controller->result['title'] ?></h1>
 			
@@ -20,10 +22,16 @@
 				
 					<div class="row">
 					
-						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-2">
+							<? if( $controller->user_thumbnail_list[ $c['user'] ] ): ?>
+							
+								<img src="http://localhost:8888//assets/images/uploads/thumbnails/<?=$controller->user_thumbnail_list[ $c['user'] ] ?>" class="img-thumbnail">
+								
+							<? endif; ?>
+						</div>
 						<div class="col-md-7">
 							#<?=$i ?> <?=date( 'M d g:ia', strtotime( $c['created'] ) ) ?>
-							<h2><?=$controller->user_list[ $c['user'] ] ?> added a comment.</h2>
+							<h3><?=$controller->user_list[ $c['user'] ] ?> added a comment.</h3>
 							
 							<p><?=nl2br( $c['description'] ) ?></p>
 							
@@ -54,7 +62,7 @@
 				<?=$form->select( 'status', $controller->statuses, array( 'label' => 'Status', 'default' => $controller->result['status'], 'class' => 'required' ) ) ?>
 				<?=$form->select( 'fixer', $controller->user_list, array( 'label' => 'Fixer', 'default' => $controller->result['fixer'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 				
-				<?=$form->textarea( 'description', array( 'label' => 'Description', 'default' => '', 'class' => '' ) ) ?>
+				<?=$form->textarea( 'description', array( 'label' => 'Comment', 'default' => '', 'class' => '' ) ) ?>
 			
 				<?=$form->buttons( 'comment', 0 ) ?>
 			
@@ -64,10 +72,38 @@
 			
 		</div>
 		<div class="col-md-4 task-review-sidebar">
+		
+			<h3>People</h3>
 			
 			<strong>Fixer</strong><br><?=$controller->user_list[ $controller->result['fixer'] ] ?><br><br>
 			
 			<strong>Tester</strong><br><?=$controller->user_list[ $controller->result['tester'] ] ?>
+			
+			<? if( count( $controller->task_timesheet ) ): ?>
+			
+				<h3>Task Timesheet</h3>
+			
+				<? foreach( $controller->task_timesheet as $user => $minutes ): ?>
+				
+					<strong><?=$controller->user_list[ $user ] ?></strong> <?=$functions->formatTime( $minutes ) ?></br>
+				
+				<? endforeach; ?>
+			
+			<? endif; ?>
+			
+			<? $watchers = explode( ',', $controller->result['watchers'] ); ?>
+			
+			<? if( count( $watchers ) ): ?>
+			
+				<h3>CC'd</h3>
+			
+				<? foreach( $watchers as $w ): ?>
+				
+					<?=$controller->user_list[ $w ] ?><br>
+					
+				<? endforeach; ?>
+			
+			<? endif; ?>
 			
 		</div>
 </div>

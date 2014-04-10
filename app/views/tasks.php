@@ -20,6 +20,7 @@
 	
 		$time_estimated = 0;
 		$time_tracked = 0;
+		$my_time_tracked = 0;
 		
 	?>
 	
@@ -29,6 +30,7 @@
 	
 		$time_estimated += $r['time_estimate'];
 		$time_tracked += $controller->timesheet_list[ $r['id'] ];
+		$my_time_tracked += $controller->my_timesheet_list[ $r['id'] ];
 		
 	?>
 	
@@ -37,9 +39,16 @@
 			<div class="col-md-6">
 				<a href='/task_review?id=<?=$r['id'] ?>'>#<?=$r['id'] ?>: <?=$r['title'] ?></a>
 				<span class='due-date'><?=date( 'M d', strtotime( $r['due_date'] ) ) ?></span>
-				<br><?=$r['description'] ?>
+				<br><?=$controller->project_list[ $r['project'] ] ?> -  Last updated on <?=date( 'M d g:ia', strtotime( $r['modified'] ) ) ?><br>
 				<span class="label label-info"><?=$functions->formatTime( $r['time_estimate'] ) ?> Est.</span>
-				<span class='label label-primary'><?=$functions->formatTime( $controller->timesheet_list[ $r['id'] ] ) ?></span>
+				<span class='label label-primary'>Total Tracked <?=$functions->formatTime( $controller->timesheet_list[ $r['id'] ] ) ?></span>
+				
+				<? if( $controller->timesheet_list[ $r['id'] ] != $controller->my_timesheet_list[ $r['id'] ] ): ?>
+				
+					<span class='label label-primary'>My Tracked <?=$functions->formatTime( $controller->my_timesheet_list[ $r['id'] ] ) ?></span>
+					
+				<? endif; ?>
+				
 			</div>
 			<div class="col-md-2"><strong>Fixer</strong><br><?=$controller->user_list[ $r['fixer'] ] ?></div>
 			<div class="col-md-2"><strong>Tester</strong><br><?=$controller->user_list[ $r['tester'] ] ?></div>
@@ -52,6 +61,7 @@
 		<span class="label label-success"><?=count( $controller->tasks ) ?> Tasks</span>
 		<span class="label label-info"><?=$functions->formatTime( $time_estimated ) ?> Total Estimated Time</span>
 		<span class='label label-primary'><?=$functions->formatTime( $time_tracked ) ?> Total Time Tracked</span>
+		<span class='label label-primary'><?=$functions->formatTime( $my_time_tracked ) ?> My Time Tracked</span>
 	
 	</div>
 	

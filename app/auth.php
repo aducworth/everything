@@ -16,13 +16,13 @@ class Auth {
 						'doctors' => array( 'doctors' => 'My Doctors', 'doctor' => 'Add Doctor', 'search' => 'Search for Doctors' ),
 						'referrals' => array( 'referrals' => 'List Referrals', 'referral' => 'Add Referral', 'schedule' => 'View Schedule' ) );
 						
-	var $always_allow = array( 'login', 'logout', 'permission', 'index' );
+	var $always_allow = array( 'login', 'logout', 'permission' );
 	
 	var $admin_access = array( 'users', 'offices' );
 	
 	var $show_search = array( 'companies', 'doctors', 'referrals', 'users' );
 	
-	var $allow = array( 'login', 'db_setup', 'index' );
+	var $allow = array( 'login', 'db_setup' );
 	
 	var $homepage_views = array( 'schedule' 	=> 'Appointment Schedule',
 								 'favorites'	=> 'Favorite Doctors' );

@@ -45,8 +45,6 @@
 	  
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Active</a></li>
-	      
 	      
 	      <?=$controller->auth->navigation() ?>
 	      

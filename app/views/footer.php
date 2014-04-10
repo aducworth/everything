@@ -25,7 +25,9 @@
     	}
 		$(document).ready(function(){	
 		
-			update_tracker();		
+			update_tracker();
+			
+			setInterval(function(){update_tracker()},10000);	
 			
 			$("#data-form").validate({
 			  rules: {

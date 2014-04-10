@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('America/New_York');
+
 //print_r( $_GET );
 
 include( 'app/db.php' );

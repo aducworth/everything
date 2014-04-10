@@ -75,7 +75,11 @@ class DB {
 		
 		}
 		
-		$fieldlist[] = "modified='" . date( 'Y-m-d H:i:s' ) . "'";
+		if( !$fields['modified'] ) {
+			
+			$fieldlist[] = "modified='" . date( 'Y-m-d H:i:s' ) . "'";
+			
+		}		
 		
 		if( $this->id ) {
 			
@@ -93,7 +97,11 @@ class DB {
 			
 		} else {
 		
-			$fieldlist[] = "created='" . date( 'Y-m-d H:i:s' ) . "'";
+			if( !$fields['created'] ) {
+			
+				$fieldlist[] = "created='" . date( 'Y-m-d H:i:s' ) . "'";
+				
+			}
 			
 			$sql = "insert into " . $this->table . " set " . implode( ', ', $fieldlist );
 			

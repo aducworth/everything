@@ -2,12 +2,15 @@
 
 class AppController {
 
-	public $statuses = array( 	'open' 					=> 'Open',
-								'in_progress'			=> 'In Progress',
-								'not_an_issue'			=> 'Not An Issue',
-								'not_reproducible'		=> 'Not Reproducible',
-								'missing_information'	=> 'Missing Information',
-								'pushed_back'			=> 'Pushed Back' );
+	public $statuses = array( 	'open' 						=> 'Open',
+								'in_progress'				=> 'In Progress',
+								'not_an_issue'				=> 'Not An Issue',
+								'not_reproducible'			=> 'Not Reproducible',
+								'missing_information'		=> 'Missing Information',
+								'pushed_back'				=> 'Pushed Back',
+								'ready_for_retest'			=> 'Ready for Tetest',
+								'ready_for_next_release' 	=> 'Ready for Next Release',
+								'fixed'						=> 'Fixed' );
 	
 	public $priorities = array(		'low'		=> 'Low',
 									'medium'	=> 'Medium',
@@ -24,82 +27,33 @@ class AppController {
 		//$this->site_url = 'http://' . str_replace( 'admin.', '', $_SERVER['SERVER_NAME'] );
 		$this->site_url = 'http://localhost:8888/';
 		
-		$this->db->table = 'companies';
+		if( $this->auth->logged_in() ) {
 		
-		$this->company_list = $this->db->retrieve('pair',"id,name",' order by name'); 
-		
-		$this->db->table = 'projects';
-		
-		$this->project_list = $this->db->retrieve('pair',"id,name",' order by name'); 
-		
-		$this->db->table = 'tasks';
-		
-		$this->task_list = $this->db->retrieve('pair',"id,title",' order by title'); 
-		
-		$this->db->table = 'users';
-		
-		$this->user_list = $this->db->retrieve('pair',"id,concat( first_name, ' ', last_name )",' order by last_name, first_name'); 
-		$this->company_user_count = $this->db->retrieve('pair',"company,count(id)",' group by company'); 
-		
-		$this->db->table = 'time_entries';
-		
-		$this->timesheet_list = $this->db->retrieve('pair',"task,sum( minutes )"," where user = " . $_SESSION['logged_in_user']['id'] . " group by task"); 
-		
-//		if( $this->db->connection && $_GET['url'] != 'db_setup' ) {
-//
-//			$this->db->table = 'doctors';
-//				
-//			$this->doctor_list = $this->db->retrieve('pair',"id,concat( fname, ' ', lname, ', ', credentials )",' order by lname, fname'); 
-//			$this->doctor_image_list = $this->db->retrieve('pair',"id,image"); 
-//			$this->doctors_by_office = $this->db->retrieve('pair',"office_id, count( id )",' group by office_id');
-//			$this->offices_by_doctor = $this->db->retrieve('pair',"id, office_id");  
-//			
-//			$this->db->table = 'offices';
-//				
-//			$this->office_list = $this->db->retrieve('pair','id,name',' order by name'); 
-//			$this->recently_added_offices = $this->db->retrieve('all','*',' order by created desc limit 5');
-//			
-//			$this->db->table = 'referrals';
-//				
-//			$this->recently_added_referrals = $this->db->retrieve('all','*',' order by created desc limit 5'); 
-//			$this->referrals_by_doctor = $this->db->retrieve('pair',"referred_to, count( id )",' group by referred_to');
-//			
-//			$this->db->table = 'doctor_types';
-//				
-//			$this->doctor_type_list = $this->db->retrieve('pair','id,name',' order by name'); 
-//			
-//			// set up referral questions
-//			$this->db->table = 'referral_questions';
-//				
-//			$this->referral_questions = $this->db->retrieve('all','*',' order by doctor_type_id, name'); 
-//			$this->referral_question_list = array();
-//			$this->question_list = array();
-//			
-//			foreach( $this->referral_questions as $rq ) {
-//				
-//				$this->question_list[ $rq['id'] ] = $rq['name'];
-//				$this->referral_question_list[ $rq['doctor_type_id'] ][ $rq['id'] ] = $rq['name'];
-//				
-//			}
-//		
-//		}
-//		
-//		if( $_SESSION['logged_in_user']['office_id'] ) {
-//			
-//			$this->db->table = 'doctors';
-//			
-//			$this->doctors_by_office_list = $this->db->retrieve('pair',"id,concat( fname, ' ', lname, ', ', credentials )",' where office_id = ' . $_SESSION['logged_in_user']['office_id'] . ' order by lname, fname'); 
-//			
-//			$this->db->table = 'referrals';
-//				
-//			$this->office_referrals_by_doctor = $this->db->retrieve('pair',"referred_to, count( id )",' where referred_by = ' . $_SESSION['logged_in_user']['office_id'] . ' group by referred_to');
-//			
-//			$this->db->table = 'favorites';
-//			
-//			$this->my_favorites = $this->db->retrieve('pair',"doctor_id, id",' where office_id = ' . $_SESSION['logged_in_user']['office_id']); 
-//						
-//		}
+			$this->db->table = 'companies';
 			
+			$this->company_list = $this->db->retrieve('pair',"id,name",' order by name'); 
+			
+			$this->db->table = 'projects';
+			
+			$this->project_list = $this->db->retrieve('pair',"id,name",' order by name'); 
+			
+			$this->db->table = 'tasks';
+			
+			$this->task_list = $this->db->retrieve('pair',"id,title",' order by title'); 
+			
+			$this->db->table = 'users';
+			
+			$this->user_list = $this->db->retrieve('pair',"id,concat( first_name, ' ', last_name )",' order by last_name, first_name'); 
+			$this->user_thumbnail_list = $this->db->retrieve('pair',"id,image"); 
+			$this->company_user_count = $this->db->retrieve('pair',"company,count(id)",' group by company'); 
+			
+			$this->db->table = 'time_entries';
+			
+			$this->my_timesheet_list = $this->db->retrieve('pair',"task,sum( minutes )"," where user = " . $_SESSION['logged_in_user']['id'] . " group by task"); 
+			$this->timesheet_list = $this->db->retrieve('pair',"task,sum( minutes )"," group by task"); 
+		
+		}
+					
 	}
 	
 	public function index() {
@@ -254,14 +208,17 @@ class AppController {
 		// if we have been on this page for a litle while, just add time and save
 		if( $this->time_entry['id'] && $this->time_entry['open_entry'] ) {
 			
-			$this->time_entry['minutes'] = round( ( time() - strtotime( $this->time_entry['open_entry_time'] ) ) / 60, 2 );
-			 
+			$this->time_entry['minutes'] += round( ( time() - strtotime( $this->time_entry['open_entry_time'] ) ) / 60, 2 );
+			$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
+			
 			$this->db->save( $this->time_entry );
 			
 		} else if( $this->time_entry['id'] ) { // if we have been on this task today, but are just switching back to it, open it up
 			
 			// close other entries for this user
 			$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+			
+			//echo( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
 			
 			$this->time_entry['open_entry'] = 1;
 			$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
@@ -270,6 +227,9 @@ class AppController {
 			
 		} else { // this is our first entry for this page today
 		
+			// close other entries for this user
+			$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+			
 			$_GET['user'] = $_SESSION['logged_in_user']['id'];
 			$_GET['minutes'] = '0.00';
 			$_GET['entry_date'] = date('Y-m-d');
@@ -719,6 +679,8 @@ class AppController {
 					$this->db->save( $data );
 					
 				}
+				
+				// send notifications
 																				
 				header( 'Location: /task_review?id=' . $_POST['id'] );
 				exit;
@@ -737,6 +699,10 @@ class AppController {
 			$this->db->table = 'comments';
 			
 			$this->comments = $this->db->retrieve( 'all', '*', ' where task = ' . $_GET['id'] ); 
+			
+			$this->db->table = 'time_entries';
+			
+			$this->task_timesheet = $this->db->retrieve('pair',"user,sum( minutes )"," where task = " . $_GET['id']  . " group by user"); 
 															
 		}
 		
@@ -862,15 +828,39 @@ class AppController {
 	}
 					
 	public function user() {
-	
-		// do restriction for office user
-		if( $_SESSION['logged_in_user']['office_id'] ) {
-			
-			$_GET['id'] = $_SESSION['logged_in_user']['id'];
-			
-		}
-	
+		
 		if( count( $_POST ) > 0 ) {
+		
+			if( is_uploaded_file( $_FILES['image']['tmp_name'] ) ) {
+				
+				if( $_FILES['image']['type'] == 'image/jpeg' ) {
+					
+					$_POST['image'] = time() . $this->clean_filename( $_FILES['image']['name'] );
+					
+					$path = str_replace( 'app', '', getcwd() ) . '/assets/images/uploads/';
+					
+					//echo( $path );
+					
+					move_uploaded_file( $_FILES['image']['tmp_name'], $path . 'tmp/' . $_POST['image'] ); 
+					
+					$resizeObj = new resize( $path . 'tmp/' . $_POST['image'] );
+					$resizeObj -> resizeImage( 300, 473, 'landscape' );
+					$resizeObj -> saveImage( $path . 'resized/' . $_POST['image'], 100 );
+									
+					$resizeObj = new resize( $path . 'tmp/' . $_POST['image'] );
+					$resizeObj -> resizeImage( 100, 100, 'landscape' );
+					$resizeObj -> saveImage( $path . 'thumbnails/' . $_POST['image'], 100 );
+				
+				} else {
+					
+					$this->message = 'Invalid type of image. Please use a jpg.';
+					$_GET['id'] = $_POST['id'];
+					
+					echo( $this->message );
+					
+				}
+			
+			}
 			
 			unset( $_POST['password_confirm'] );
 			

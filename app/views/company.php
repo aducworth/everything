@@ -25,7 +25,7 @@
 	<?=$form->textbox( 'email', array( 'label' => 'Email', 'default' => $controller->result['email'], 'class' => 'required email' ) ) ?>
 	<?=$form->textbox( 'phone', array( 'label' => 'Phone', 'default' => $controller->result['phone'], 'class' => 'required phone' ) ) ?>
 	
-	<?=$form->file( 'image', array( 'label' => 'Logo', 'default' => $controller->result['image'], 'class' => 'required', 'help' => 'Image ( Please restrict photos to jpgs. The image will automatically be resized. )' ) ) ?>
+	<?=$form->file( 'image', array( 'label' => 'Logo', 'default' => $controller->result['image'], 'class' => '', 'help' => 'Image ( Please restrict photos to jpgs. The image will automatically be resized. )' ) ) ?>
 	
 	<?=$form->textarea( 'description', array( 'label' => 'Description', 'default' => $controller->result['description'], 'class' => '' ) ) ?>
 
