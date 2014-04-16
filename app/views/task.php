@@ -26,6 +26,8 @@
 	
 	<?=$form->select( 'tester', $controller->user_list, array( 'label' => 'Tester', 'default' => $controller->result['tester'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 	
+	<?=$form->checkbox( 'watchers', $controller->user_list, array( 'label' => 'Watchers', 'default' => explode( ',', $controller->result['watchers'] ), 'class' => '' ) ) ?>
+	
 	<?=$form->textarea( 'description', array( 'label' => 'Description', 'default' => $controller->result['description'], 'class' => '' ) ) ?>
 
 	<?=$form->buttons( 'task', $_GET['id'] ) ?>

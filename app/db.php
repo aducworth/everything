@@ -79,7 +79,11 @@ class DB {
 			
 			$fieldlist[] = "modified='" . date( 'Y-m-d H:i:s' ) . "'";
 			
-		}		
+		}	
+		
+		//echo( 'id: ' . $this->id );
+		//print_r( $fields );
+		//print_r( $fieldlist );	
 		
 		if( $this->id ) {
 			

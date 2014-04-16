@@ -22,7 +22,7 @@ class AppFunctions {
 			
 		}
 		
-		return 'Not Started';
+		return '0m';
 		
 	}
 	

@@ -12,28 +12,30 @@
 			
 			<p><?=nl2br( $controller->result['description'] ) ?></p>
 			
-			<? if( count( $controller->comments ) ): ?>
+			<? if( count( $controller->result['histories'] ) ): ?>
 			
 			<div class="row task-comments">
 			
 				<? $i = 1; ?>
 			
-				<? foreach( $controller->comments as $c ): ?>
+				<? foreach( $controller->result['histories'] as $c ): ?>
 				
 					<div class="row">
 					
 						<div class="col-md-2">
 							<? if( $controller->user_thumbnail_list[ $c['user'] ] ): ?>
 							
-								<img src="http://localhost:8888//assets/images/uploads/thumbnails/<?=$controller->user_thumbnail_list[ $c['user'] ] ?>" class="img-thumbnail">
+								<img src="/assets/images/uploads/thumbnails/<?=$controller->user_thumbnail_list[ $c['user'] ] ?>" class="img-thumbnail">
 								
 							<? endif; ?>
 						</div>
 						<div class="col-md-7">
 							#<?=$i ?> <?=date( 'M d g:ia', strtotime( $c['created'] ) ) ?>
-							<h3><?=$controller->user_list[ $c['user'] ] ?> added a comment.</h3>
+							<h3><?=$controller->histories->build_history_action( $c, $controller->user_list ) ?></h3>
 							
-							<p><?=nl2br( $c['description'] ) ?></p>
+							<?=$controller->histories->build_history_description( $c, $controller->user_list ) ?>
+							
+							<p><?=nl2br( $c['comment'] ) ?></p>
 							
 						</div>
 					
@@ -56,13 +58,21 @@
 				<? if( $_GET['id'] ): ?>
 				
 					<input type='hidden' id='id' name='id' value='<?=$_GET['id'] ?>'/>
+					
+					<input type='hidden' name='watchers' value='<?=$controller->result['watchers'] ?>'/>
 				
 				<? endif; ?>
+				
+				<?=$form->textbox( 'time_estimate', array( 'label' => 'Estimate', 'default' => $controller->result['time_estimate'], 'class' => '' ) ) ?>
+				
+				<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required' ) ) ?>
 					
 				<?=$form->select( 'status', $controller->statuses, array( 'label' => 'Status', 'default' => $controller->result['status'], 'class' => 'required' ) ) ?>
 				<?=$form->select( 'fixer', $controller->user_list, array( 'label' => 'Fixer', 'default' => $controller->result['fixer'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 				
-				<?=$form->textarea( 'description', array( 'label' => 'Comment', 'default' => '', 'class' => '' ) ) ?>
+				<?=$form->select( 'tester', $controller->user_list, array( 'label' => 'Tester', 'default' => $controller->result['tester'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
+				
+				<?=$form->textarea( 'comment', array( 'label' => 'Comment', 'default' => '', 'class' => '' ) ) ?>
 			
 				<?=$form->buttons( 'comment', 0 ) ?>
 			
@@ -79,11 +89,11 @@
 			
 			<strong>Tester</strong><br><?=$controller->user_list[ $controller->result['tester'] ] ?>
 			
-			<? if( count( $controller->task_timesheet ) ): ?>
+			<? if( count( $controller->result['task_timesheet'] ) ): ?>
 			
 				<h3>Task Timesheet</h3>
 			
-				<? foreach( $controller->task_timesheet as $user => $minutes ): ?>
+				<? foreach( $controller->result['task_timesheet'] as $user => $minutes ): ?>
 				
 					<strong><?=$controller->user_list[ $user ] ?></strong> <?=$functions->formatTime( $minutes ) ?></br>
 				

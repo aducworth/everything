@@ -422,9 +422,6 @@ class AppController {
 	
 		if( count( $_POST ) ) {
 		
-			$description = $_POST['description'];
-			unset( $_POST['description'] );
-			
 			if( $this->tasks->save( $_POST ) ) {
 		
 				if( !$_POST['id'] ) {
@@ -432,18 +429,7 @@ class AppController {
 					$_POST['id'] = mysql_insert_id();
 				
 				}
-				
-				// save the comment
-				if( $description ) {
-				
-					$data = array( 'task' => $_POST['id'], 'user' => $_SESSION['logged_in_user']['id'], 'description' => $description );
-					
-					$this->histories->save( $data );
-					
-				}
-				
-				// send notifications
-																				
+											
 				header( 'Location: /task_review?id=' . $_POST['id'] );
 				exit;
 			
@@ -458,9 +444,9 @@ class AppController {
 			$_GET['task'] 		= $_GET['id'];
 			$_GET['project'] 	= $this->result['project'];
 			
-			$this->histories = $this->histories->retrieve( 'all', '*', ' where task = ' . $_GET['id'] ); 
+			$this->result['histories'] = $this->histories->retrieve( 'all', '*', ' where task = ' . $_GET['id'] ); 
 			
-			$this->task_timesheet = $this->time_entries->retrieve('pair',"user,sum( minutes )"," where task = " . $_GET['id']  . " group by user"); 
+			$this->result['task_timesheet'] = $this->time_entries->retrieve('pair',"user,sum( minutes )"," where task = " . $_GET['id']  . " group by user"); 
 															
 		}
 		

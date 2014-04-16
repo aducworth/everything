@@ -296,28 +296,28 @@ class Form {
 	
 	}
 	
-	function doctor_picker( $name ) {
-		
-		
-	}
 	
 	function checkbox( $name, $inputs=array(), $options=array() ) {
 	
-		$toreturn = '';
+		$toreturn = '<div class="form-group">';
 		
 		if( $options['label'] ) {
 		
-			$toreturn = "<span class='help-block'><strong>" . $options['label'] . "</strong></span>";
+			$toreturn .= "<label for='input_".$name."' class='col-lg-2 control-label'>".$options['label']."</label>";
 		
 		}
+		
+		$toreturn .= '<div class="col-lg-10 col-lg-offset-2">';
 		
 		foreach( $inputs as $value => $label ) {
 			
-			$toreturn .= "<label class='checkbox'>
+			$toreturn .= "<div class='checkbox'><label>
 							  <input type='checkbox' id='".$name.((count($inputs)>1)?$value:'')."-id' value='" . $value. "' name='".$name.((count($inputs)>1)?'[]':'')."' " . (in_array( $value, $options['default'] )?'checked':'') . "/>" . $label .
-						  "</label>";
+						  "</label></div>";
 			
 		}
+		
+		$toreturn .= '</div></div>';
 				
 		return $toreturn;
 	
