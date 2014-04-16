@@ -50,6 +50,7 @@ class AppController {
 			$this->active_project_list = $this->projects->retrieve('pair',"id,name",' where archived=0 order by name'); 
 			
 			$this->task_list = $this->tasks->retrieve('pair',"id,title",' order by title'); 
+			$this->task_project_list = $this->tasks->retrieve('pair',"id,project"); 
 			
 			$this->user_list = $this->users->retrieve('pair',"id,concat( first_name, ' ', last_name )",' order by last_name, first_name'); 
 			$this->user_thumbnail_list = $this->users->retrieve('pair',"id,image"); 
@@ -297,6 +298,58 @@ class AppController {
 		}
 			
 		$this->tasks = $this->tasks->retrieve('all','*',$where . ' order by title'); 
+			
+	}
+	
+	public function activity() {
+	
+		// set up search caching
+		$_GET['project'] = isset( $_GET['project'] )?$_GET['project']:$_SESSION['project'];
+		$_SESSION['project'] = $_GET['project']?$_GET['project']:'';
+		
+		$_GET['from'] = isset( $_GET['from'] )?$_GET['from']:$_SESSION['from'];
+		$_SESSION['from'] = $_GET['from']?$_GET['from']:'';
+		
+		$_GET['to'] = isset( $_GET['to'] )?$_GET['to']:$_SESSION['to'];
+		$_SESSION['to'] = $_GET['to']?$_GET['to']:'';
+		
+		$_GET['user'] = isset( $_GET['user'] )?$_GET['user']:$_SESSION['user'];
+		$_SESSION['user'] = $_GET['user']?$_GET['user']:'';
+	
+		$where = " where 1=1";
+		
+		if( $_GET['search'] ) {
+			
+			$where .= " and ( title like '%" . $_GET['search'] . "%' ) ";
+			
+		}
+		
+		if( $_GET['project'] ) {
+			
+			//$where .= " and ( project = " . $_GET['project'] . " ) ";
+			
+		}
+		
+		if( $_GET['from'] ) {
+			
+			$where .= " and ( created >= '" . $_GET['from'] . "' ) ";
+			
+		}
+		
+		if( $_GET['to'] ) {
+			
+			$where .= " and ( created <= '" . $_GET['to'] . "' ) ";
+			
+		}
+
+		
+		if( $_GET['user'] ) {
+			
+			$where .= " and ( user = '" . $_GET['user'] . "' ) ";
+			
+		}
+			
+		$this->results = $this->histories->retrieve('all','*',$where . ' order by created desc'); 
 			
 	}
 	
