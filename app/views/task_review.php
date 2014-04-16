@@ -23,11 +23,7 @@
 					<div class="row">
 					
 						<div class="col-md-2">
-							<? if( $controller->user_thumbnail_list[ $c['user'] ] ): ?>
-							
-								<img src="/assets/images/uploads/thumbnails/<?=$controller->user_thumbnail_list[ $c['user'] ] ?>" class="img-thumbnail">
-								
-							<? endif; ?>
+							<?=$controller->users->get_avatar( $c['user'] ) ?>
 						</div>
 						<div class="col-md-7">
 							#<?=$i ?> <?=date( 'M d g:ia', strtotime( $c['created'] ) ) ?>
@@ -65,7 +61,7 @@
 				
 				<?=$form->textbox( 'time_estimate', array( 'label' => 'Estimate', 'default' => $controller->result['time_estimate'], 'class' => '' ) ) ?>
 				
-				<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required' ) ) ?>
+				<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required datepicker' ) ) ?>
 					
 				<?=$form->select( 'status', $controller->statuses, array( 'label' => 'Status', 'default' => $controller->result['status'], 'class' => 'required' ) ) ?>
 				<?=$form->select( 'fixer', $controller->user_list, array( 'label' => 'Fixer', 'default' => $controller->result['fixer'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>

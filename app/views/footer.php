@@ -5,6 +5,7 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/validate.js"></script>
     <script src="/assets/fullcalendar/fullcalendar.min.js"></script>
+    <script src="/assets/datepicker/js/bootstrap-datepicker.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
     
     <script type="text/javascript">
@@ -24,6 +25,10 @@
 	    	
     	}
 		$(document).ready(function(){	
+		
+			$('.datepicker').datepicker({
+				format: 'yyyy-mm-dd'
+			});
 		
 			update_tracker();
 			

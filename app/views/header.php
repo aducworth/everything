@@ -15,6 +15,8 @@
     <link href="/assets/fullcalendar/fullcalendar.print.css" rel="stylesheet">
     
     <link href="/assets/css/app.css" rel="stylesheet" media="screen">
+    <link href="/assets/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
+    
     
     <style>
       body {

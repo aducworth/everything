@@ -20,7 +20,7 @@
 	
 	<?=$form->textbox( 'time_estimate', array( 'label' => 'Estimate', 'default' => $controller->result['time_estimate'], 'class' => '' ) ) ?>
 	
-	<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required' ) ) ?>
+	<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required datepicker' ) ) ?>
 	
 	<?=$form->select( 'fixer', $controller->user_list, array( 'label' => 'Fixer', 'default' => $controller->result['fixer'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 	

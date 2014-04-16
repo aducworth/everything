@@ -28,7 +28,7 @@
 	        <tr>
 	        	<td><?=$controller->project_list[ $r['project'] ]?$controller->project_list[ $r['project'] ]:'Not Specified' ?></td>
 	        	<td><?=$controller->task_list[ $r['task'] ]?$controller->task_list[ $r['task'] ]:'Not Specified' ?></td>
-	        	<td><?=round( $r['minutes'] / 60, 2 ) ?> hours</td>
+	        	<td><?=$functions->formatTime( $r['minutes'] ) ?></td>
 	            <td><a href='/time_entry?id=<?=$r['id'] ?>'>edit</a> - <a href='/delete?id=<?=$r['id'] ?>&model=time_entries' onclick="return confirm( 'Are you sure?' )">delete</a></td>
 	        </tr>
 	        
@@ -39,7 +39,7 @@
         <tr>
         	<td>Total</td>
         	<td>&nbsp;</td>
-        	<td><?=round( $total / 60, 2 ) ?> hours</td>
+        	<td><?=$functions->formatTime( $total ) ?></td>
             <td>&nbsp;</td>
         </tr>
         
