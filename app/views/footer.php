@@ -59,45 +59,7 @@
 			  }
 			  
 			});
-			
-			$('#doctor_type_id-id').change(function(){
-			
-				$('.questions-by-doctor-type').hide();
-				
-				if( $(this).val() ) {
-					
-					$('#doctor-type-'+$(this).val()).show();
-					
-				}
-				
-			});
-			
-			$('.update-favorites').click(function(e){
-			
-				e.preventDefault();
-				
-				var this_link = $(this);
-				var postData = 'doctor=' + $(this).attr('data-attr');
-				
-				$.ajax({
-				  url: '/_update_favorites?ajax=true',
-				  data: postData,
-				  type: "POST"
-				}).done(function(data) {
-				  
-				  	if( this_link.html().trim() == 'Add to Favorites' ) {
-					  	
-					  	this_link.html( 'Remove From Favorites' );
-					  	
-				  	} else {
-					  	
-					  	this_link.html( 'Add to Favorites' );
-					  	
-				  	}
-				});
-			
-			});
-			
+						
 			$('.update-tag').change(function() {
 				
 			  if( $('#fname-id').val() == '' || $('#lname-id').val() == '' ) {
@@ -208,11 +170,6 @@
 			  			  
 			});
 			
-			$('.booking-list-link').click(function(e) {
-				
-				e.preventDefault();
-							  			  
-			});
 			
 			$(function() {
 				
@@ -247,173 +204,11 @@
 				});
 			  
 		  	});
-		  	
-		  	$('.question-selector').click(function(e){
-		  	
-		  		e.preventDefault();
-		  		
-		  		$('.question-selector').removeClass('selected');
-		  		$('.question-selector').parent().css('border','3px #fff solid');
-		  		
-		  		var swatch_click = $(this).find('span.selector-swatch');
-		  		var selected_teeth = $(this).parent().find('span.selected-teeth');		  		
-		  		var color = swatch_click.css("background-color");
-		  		
-		  		if( swatch_click.hasClass('checked-swatch') ) {
-			  		
-			  		swatch_click.removeClass('checked-swatch');
-			  		selected_teeth.html('');			  		
-			  		$('a.tooth').removeClass( swatch_click.attr('class').replace('selector-swatch','') );
-			  		
-		  		} else {
-			  		
-			  		swatch_click.addClass('checked-swatch');
-			  		selected_teeth.html('( All Teeth )');
-			  		$(this).addClass('selected');
-			  		$(this).parent().css('border','3px ' + color + ' solid');
-			  		
-		  		}
-		  		
-		  	});
-		  	
-		  	$('.tooth').click(function(e){
-		  	
-		  		e.preventDefault();
-		  		
-		  		//alert( $(this).attr('id') );
-		  		
-		  		//var select_question = $('#question-list .selected');
-		  		
-		  		if( $('#question-list .selected').attr('id') ) {
-			  		
-			  		var color_class = $('#question-list .selected span').attr('class');
-			  		color_class = color_class.replace('checked-swatch','').replace('selector-swatch','');
-			  		
-			  		if( $(this).hasClass( color_class ) ) {
-				  		
-				  		$(this).removeClass( color_class );
-				  		
-			  		} else {
-				  		
-				  		$(this).addClass( color_class );
-				  		
-			  		}
-		  		
-		  		} else {
-			  		
-			  		alert( 'Please select an issue to the left and then select teeth to match with the issue.' );
-			  		
-		  		}
-		  		
-		  		
-//		  		$('.question-selector').removeClass('selected');
-//		  		$('.question-selector').parent().css('border','3px #fff solid');
-//		  		
-//		  		var color = $(this).find('span').css("background-color");
-//		  		
-//		  		$(this).parent().css('border','3px ' + color + ' solid');
-		  		//alert( color );
-		  		
-		  	});
 						
 		});
 		
 		
 	</script>
-	
-	<? if( $action == 'schedule' || ( $action == 'index' && $_SESSION['logged_in_user']['homepage'] == 'schedule' ) ): ?>
-	
-	<script>
-
-		$(document).ready(function() {
-		
-			$('#calendar').fullCalendar({
-				editable: true,
-				events: [
-					<? foreach( $controller->referrals as $r ): ?>
-					{
-						<? $appt_time = strtotime( $r['appointment'] ); ?>
-						
-						id: <?=$r['id'] ?>,
-						title: '<?=$r['patient_name'] ?>',
-						start: new Date(<?=date( 'Y', $appt_time ) ?>, <?=( date( 'm', $appt_time ) - 1 ) ?>, <?=date( 'd', $appt_time ) ?>, <?=date( 'H', $appt_time ) ?>, <?=date( 'i', $appt_time ) ?>),
-						url: '/referral?id=<?=$r['id'] ?>',
-						allDay: false
-					},
-					<? endforeach; ?>
-				]
-			});
-			
-		});
-	
-	</script>
-
-	<? endif; ?>
-	
-	<? if( $action == 'schedule_appointment' ): ?>
-	
-		<?
-		
-			$current = time();
-			$three_months = strtotime( '+3 months' );
-			
-		?>
-	
-	<script>
-
-		$(document).ready(function() {
-		
-			$('#calendar').fullCalendar({
-				editable: false,
-				events: [
-					<? while( $current < $three_months ): ?>
-					
-						<? if( $controller->result[ date( 'l', $current ) ] ): ?>
-						
-						{
-							id: <?=$current ?>,
-							title: '<?=date( 'l', $current ) . ': ' . implode( ', ', $controller->result[ date( 'l', $current ) ] ) ?>',
-							start: new Date(<?=date( 'Y', $current ) ?>, <?=( date( 'm', $current ) - 1 ) ?>, <?=date( 'd', $current ) ?>, <?=date( 'H', $current ) ?>, <?=date( 'i', $current ) ?>),
-							allDay: true
-						},
-						
-						<? endif; ?>
-					
-						<? $current = strtotime( '+1 day', $current ) ?>
-						
-					<? endwhile; ?>
-				],
-				eventClick: function(calEvent, jsEvent, view) {
-				
-					var postData = 'ajax=true&doctor=' + $('#doctor').val() + '&day=' + calEvent.start;
-				
-					$.ajax({
-					  url: '/_choose_appointment_day',
-					  data: postData,
-					  type: "GET"
-					}).done(function(data) {
-					  //alert( data );
-					  	
-					  	$('#choose-day').html( data );
-					  	
-					  	// change the border color just for fun
-					  	$(this).css('border-color', 'red');
-					});
-
-			        //alert('Event: ' + calEvent.start);
-			        //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-			        //alert('Dr: ' + $('#doctor').val());
-			
-			        
-			
-			    }
-			});
-			
-		});
-	
-	</script>
-
-	<? endif; ?>
         
   </body>
 </html>
