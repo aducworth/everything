@@ -12,7 +12,7 @@
 		
 	<?=$form->textbox( 'title', array( 'label' => 'Title', 'default' => $controller->result['title'], 'class' => 'required' ) ) ?>
 	
-	<?=$form->select( 'project', $controller->project_list, array( 'label' => 'Project', 'default' => $controller->result['project'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
+	<?=$form->select( 'project', $controller->active_project_list, array( 'label' => 'Project', 'default' => $controller->result['project'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 	
 	<?=$form->select( 'status', $controller->statuses, array( 'label' => 'Status', 'default' => $controller->result['status'], 'class' => 'required' ) ) ?>
 	

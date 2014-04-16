@@ -16,6 +16,8 @@
 	    
 	<? endif; ?>
 	
+	<?=$form->checkbox( 'archived', array( 1 => 'Archived' ), array( 'label' => ' ', 'default' => array( $controller->result['archived'] ), 'class' => '' ) ) ?>
+	
 	<?=$form->textbox( 'name', array( 'label' => 'Name', 'default' => $controller->result['name'], 'class' => 'required' ) ) ?>
 	
 	<?=$form->select( 'company', $controller->company_list, array( 'label' => 'Company', 'default' => $controller->result['company'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>

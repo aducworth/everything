@@ -4,7 +4,7 @@
 
 	<form class="navbar-form navbar-left" role="search">
 	
-	  <?=$form->select( 'project', $controller->project_list, array( 'label' => '', 'default' => $_GET['project'], 'class' => '', 'empty' => ' ( Filter By Project ) ' ) ) ?>
+	  <?=$form->select( 'project', $controller->active_project_list, array( 'label' => '', 'default' => $_GET['project'], 'class' => '', 'empty' => ' ( Filter By Project ) ' ) ) ?>
 	  
 	  <?=$form->select( 'status', $controller->statuses, array( 'label' => '', 'default' => $_GET['status'], 'class' => '', 'empty' => ' ( Filter By Status ) ' ) ) ?>
 	  

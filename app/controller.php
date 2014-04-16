@@ -47,6 +47,7 @@ class AppController {
 			$this->company_list = $this->companies->retrieve('pair',"id,name",' order by name'); 
 			
 			$this->project_list = $this->projects->retrieve('pair',"id,name",' order by name'); 
+			$this->active_project_list = $this->projects->retrieve('pair',"id,name",' where archived=0 order by name'); 
 			
 			$this->task_list = $this->tasks->retrieve('pair',"id,title",' order by title'); 
 			
@@ -258,6 +259,16 @@ class AppController {
 	}
 			
 	public function tasks() {
+	
+		// set up search caching
+		$_GET['project'] = isset( $_GET['project'] )?$_GET['project']:$_SESSION['project'];
+		$_SESSION['project'] = $_GET['project']?$_GET['project']:'';
+		
+		$_GET['status'] = isset( $_GET['status'] )?$_GET['status']:$_SESSION['status'];
+		$_SESSION['status'] = $_GET['status']?$_GET['status']:'';
+		
+		$_GET['user'] = isset( $_GET['user'] )?$_GET['user']:$_SESSION['user'];
+		$_SESSION['user'] = $_GET['user']?$_GET['user']:'';
 	
 		$where = " where 1=1";
 		

@@ -86,89 +86,89 @@ class Tasks extends DB {
 	
 	public function send_notifications( $task_id, $history = array() ) {
 	
-		$task_info = $this->retrieve('one','*',' where id = ' . $task_id);
-		
-		$projects = new Projects;
-		
-		$project_info = $projects->retrieve('one','*',' where id = ' . $task_info['project']);
-		
-		$users = new Users;
-		
-		$user_list = $users->retrieve('pair',"id,concat( first_name, ' ', last_name )",' order by last_name, first_name'); 
-		$user_emails = $users->retrieve('pair',"id,email"); 
-		
-		$watchers = explode( ',', $task_info['watchers'] );
-		
-		$functions = new AppFunctions;
-		
-		$fromname = $_SESSION['logged_in_user']['first_name'] . ' ' . $_SESSION['logged_in_user']['last_name'] . ' via {e}verything';
-		$fromaddress = $_SESSION['logged_in_user']['email'];
-		
-		$body = '<h1>' . $task_info['name'] . '</h1>';
-		$body .= '<p><strong>Due Date</strong>' . $task_info['due_date'] . '</p>';
-		$body .= '<p><strong>Fixer</strong>' . $user_list[ $task_info['fixer'] ] . '</p>';
-		$body .= '<p><strong>Tester</strong>' . $user_list[ $task_info['tester'] ] . '</p>';
-		
-		// if history has been included, and send appropriate emails
-		if( count( $history ) ) {
-			
-			// send creation email
-			if( $history['creation'] ) {
-
-				$body .= '<p><strong>Creator</strong>' . $user_list[ $_SESSION['logged_in_user']['id'] ] . '</p>';
-				
-				// send to fixer
-				$subject = '[Assigned as Fixer] ' . $project_info['name'];
-				$functions->send_mail( $user_emails[ $task_info['fixer'] ], $body, $subject, $fromaddress, $fromname);
-				
-				// send to tester
-				$subject = '[Assigned as Tester] ' . $project_info['name'];
-				$functions->send_mail( $user_emails[ $task_info['tester'] ], $body, $subject, $fromaddress, $fromname);
-				
-				// send to watchers
-				
-				$subject = '[New] ' . $project_info['name'];
-				
-				foreach( $watchers as $w ) {
-					
-					$functions->send_mail( $user_emails[ $w ], $body, $subject, $fromaddress, $fromname);
-					
-				}
-				
-				
-			} else { // we've updated some of the tracked information here
-			
-				// send to fixer
-				if( $history['fixer'] )  {
-					
-					$subject = '[Assigned as Fixer] ' . $project_info['name'];
-					$functions->send_mail( $user_emails[ $history['new_fixer'] ], $body, $subject, $fromaddress, $fromname);
-					
-				}
-				
-				// send to fixer
-				if( $history['tester'] )  {
-				
-					// send to tester
-					$subject = '[Assigned as Tester] ' . $project_info['name'];
-					$functions->send_mail( $user_emails[ $history['new_tester'] ], $body, $subject, $fromaddress, $fromname);
-					
-				}
-				
-				// send to watchers
-				
-				$subject = '[Edit] ' . $project_info['name'];
-				
-				foreach( $watchers as $w ) {
-					
-					$functions->send_mail( $user_emails[ $w ], $body, $subject, $fromaddress, $fromname);
-					
-				}
-				
-				
-			}
-			
-		}
+//		$task_info = $this->retrieve('one','*',' where id = ' . $task_id);
+//		
+//		$projects = new Projects;
+//		
+//		$project_info = $projects->retrieve('one','*',' where id = ' . $task_info['project']);
+//		
+//		$users = new Users;
+//		
+//		$user_list = $users->retrieve('pair',"id,concat( first_name, ' ', last_name )",' order by last_name, first_name'); 
+//		$user_emails = $users->retrieve('pair',"id,email"); 
+//		
+//		$watchers = explode( ',', $task_info['watchers'] );
+//		
+//		$functions = new AppFunctions;
+//		
+//		$fromname = $_SESSION['logged_in_user']['first_name'] . ' ' . $_SESSION['logged_in_user']['last_name'] . ' via {e}verything';
+//		$fromaddress = $_SESSION['logged_in_user']['email'];
+//		
+//		$body = '<h1>' . $task_info['name'] . '</h1>';
+//		$body .= '<p><strong>Due Date</strong>' . $task_info['due_date'] . '</p>';
+//		$body .= '<p><strong>Fixer</strong>' . $user_list[ $task_info['fixer'] ] . '</p>';
+//		$body .= '<p><strong>Tester</strong>' . $user_list[ $task_info['tester'] ] . '</p>';
+//		
+//		// if history has been included, and send appropriate emails
+//		if( count( $history ) ) {
+//			
+//			// send creation email
+//			if( $history['creation'] ) {
+//
+//				$body .= '<p><strong>Creator</strong>' . $user_list[ $_SESSION['logged_in_user']['id'] ] . '</p>';
+//				
+//				// send to fixer
+//				$subject = '[Assigned as Fixer] ' . $project_info['name'];
+//				$functions->send_mail( $user_emails[ $task_info['fixer'] ], $body, $subject, $fromaddress, $fromname);
+//				
+//				// send to tester
+//				$subject = '[Assigned as Tester] ' . $project_info['name'];
+//				$functions->send_mail( $user_emails[ $task_info['tester'] ], $body, $subject, $fromaddress, $fromname);
+//				
+//				// send to watchers
+//				
+//				$subject = '[New] ' . $project_info['name'];
+//				
+//				foreach( $watchers as $w ) {
+//					
+//					$functions->send_mail( $user_emails[ $w ], $body, $subject, $fromaddress, $fromname);
+//					
+//				}
+//				
+//				
+//			} else { // we've updated some of the tracked information here
+//			
+//				// send to fixer
+//				if( $history['fixer'] )  {
+//					
+//					$subject = '[Assigned as Fixer] ' . $project_info['name'];
+//					$functions->send_mail( $user_emails[ $history['new_fixer'] ], $body, $subject, $fromaddress, $fromname);
+//					
+//				}
+//				
+//				// send to fixer
+//				if( $history['tester'] )  {
+//				
+//					// send to tester
+//					$subject = '[Assigned as Tester] ' . $project_info['name'];
+//					$functions->send_mail( $user_emails[ $history['new_tester'] ], $body, $subject, $fromaddress, $fromname);
+//					
+//				}
+//				
+//				// send to watchers
+//				
+//				$subject = '[Edit] ' . $project_info['name'];
+//				
+//				foreach( $watchers as $w ) {
+//					
+//					$functions->send_mail( $user_emails[ $w ], $body, $subject, $fromaddress, $fromname);
+//					
+//				}
+//				
+//				
+//			}
+//			
+//		}
 	
 		
 	}

@@ -14,6 +14,7 @@
     	<tr>
         	<th>Name</th>
         	<th>Company</th>
+        	<th>Archived</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -25,6 +26,7 @@
         <tr>
         	<td><?=$r['name'] ?></td>
         	<td><?=$controller->company_list[ $r['company'] ] ?></td>
+        	<td><?=$r['archived']?'y':'' ?></td>
             <td><a href='/project?id=<?=$r['id'] ?>'>edit</a> - <a href='/delete?id=<?=$r['id'] ?>&model=projects' onclick="return confirm( 'Are you sure?' )">delete</a></td>
         </tr>
         
