@@ -162,6 +162,36 @@ class AppController {
 			
 	}
 	
+	public function time() {
+	
+		$this->db->table = 'time_entries';
+		
+		$where = " where 1=1";
+		
+		if( $_GET['user'] ) {
+		
+			$where .= " and user = " . $_GET['user'];
+		
+		}
+		
+		if( $_GET['project'] ) {
+		
+			$where .= " and project = " . $_GET['project'];
+		
+		}
+		
+		if( $_GET['from'] ) {
+			
+			$where .= " and entry_date='" . date('Y-m-d') . "'";
+			
+		}		
+		
+		
+		$this->time_entries = $this->db->retrieve('all','project, task, user, entry_date, sum( minutes ) as total_minutes',$where . " group by project, task, user, entry_date order by entry_date"); 
+		$this->time_entries_by_day = $this->db->retrieve('pair','entry_date, sum( minutes ) as total_minutes',$where . " group by entry_date"); 
+	
+	}
+	
 	public function timesheet() {
 	
 		$this->db->table = 'time_entries';
