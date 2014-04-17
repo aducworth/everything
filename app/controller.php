@@ -325,8 +325,22 @@ class AppController {
 		}
 		
 		if( $_GET['project'] ) {
+		
+			$tofilter = array();
+		
+			$project_tasks = $this->tasks->retrieve('all','*',' where project = ' . $_GET['project']);
 			
-			//$where .= " and ( project = " . $_GET['project'] . " ) ";
+			foreach( $project_tasks as $pt ) {
+				
+				$tofilter[] = 'task=' . $pt['id'];
+				
+			}
+			
+			if( count( $tofilter ) ) {
+				
+				$where .= " and ( " . implode( ' or ', $tofilter ) . " ) ";
+				
+			}
 			
 		}
 		
