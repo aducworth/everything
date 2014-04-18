@@ -23,7 +23,7 @@ class Auth {
 	
 	var $show_search = array( 'companies', 'users' );
 	
-	var $allow = array( 'login', 'db_setup' );
+	var $allow = array( 'login', 'db_setup', 'github' );
 	
 	var $homepage_views = array( 'schedule' 	=> 'Appointment Schedule',
 								 'favorites'	=> 'Favorite Doctors' );

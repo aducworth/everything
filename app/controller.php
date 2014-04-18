@@ -65,13 +65,9 @@ class AppController {
 	
 	public function github() {
 		
-		$body = '';
+		$payload = json_decode( $_POST['payload'] );
 		
-		foreach( $_POST as $name => $data ) {
-			
-			$body .= $name . ': ' . $data;
-			
-		}
+		$body = 'ref: ' . (string)$payload->{'ref'};
 		
 		$functions = new AppFunctions;
 		
