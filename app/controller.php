@@ -73,6 +73,8 @@ class AppController {
 			
 		}
 		
+		$functions = new AppFunctions;
+		
 		$functions->send_mail('aducworth@gmail.com', $body, 'Push to Everything', 'no-reply@everything.com', '{e}verything app');
 		exit;
 		
