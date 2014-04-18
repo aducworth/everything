@@ -63,6 +63,21 @@ class AppController {
 					
 	}
 	
+	public function github() {
+		
+		$body = '';
+		
+		foreach( $_POST as $name => $data ) {
+			
+			$body .= $name . ': ' . $data;
+			
+		}
+		
+		$functions->send_mail('aducworth@gmail.com', $body, 'Push to Everything', 'no-reply@everything.com', '{e}verything app');
+		exit;
+		
+	}
+	
 	public function index() {
 	
 		if( count( $_POST ) > 0 ) {

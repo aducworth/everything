@@ -17,11 +17,11 @@ class Auth {
 						'doctors' => array( 'doctors' => 'My Doctors', 'doctor' => 'Add Doctor', 'search' => 'Search for Doctors' ),
 						'referrals' => array( 'referrals' => 'List Referrals', 'referral' => 'Add Referral', 'schedule' => 'View Schedule' ) );
 						
-	var $always_allow = array( 'login', 'logout', 'permission' );
+	var $always_allow = array( 'login', 'logout', 'permission', 'github' );
 	
 	var $admin_access = array( 'users', 'offices' );
 	
-	var $show_search = array( 'companies', 'doctors', 'referrals', 'users' );
+	var $show_search = array( 'companies', 'users' );
 	
 	var $allow = array( 'login', 'db_setup' );
 	
