@@ -10,7 +10,7 @@
 			
 			<h1><?=$controller->result['title'] ?></h1>
 			
-			<p><?=nl2br( $controller->result['description'] ) ?></p>
+			<p><?=$functions->convertText( $controller->result['description'] ) ?></p>
 			
 			<? if( count( $controller->result['histories'] ) ): ?>
 			
@@ -31,7 +31,7 @@
 							
 							<?=$controller->histories->build_history_description( $c, $controller->user_list ) ?>
 							
-							<p><?=nl2br( $c['comment'] ) ?></p>
+							<p><?=$functions->convertText( $c['comment'] ) ?></p>
 							
 						</div>
 					

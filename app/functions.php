@@ -62,6 +62,14 @@ class AppFunctions {
 	    
 	}
 	
+	public function convertText( $text ) {
+	
+		$text = nl2br( $text );
+		
+		return ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]","<a href=\"\\0\" target=\"_blank\">\\0</a>", $text);
+				
+	}
+	
 	public function send_mail($to, $body, $subject, $fromaddress, $fromname, $attachments=false) {
 
 	  $eol="\r\n";
