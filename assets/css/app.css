@@ -37,6 +37,11 @@
 	border-radius: 10px;
 	color: #fff;
 	margin-bottom: 10px;
+	border: 2px #fff solid;
+}
+
+.unread .task-label {
+	border: 2px navy solid;
 }
 
 .task-list, .task-filter {
@@ -105,8 +110,4 @@
 	padding: 14px 0 12px 0;
 	text-align: center;
 	width: 48px;
-}
-
-.unread {
-	color: fuchsia;
 }

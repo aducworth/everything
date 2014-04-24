@@ -27,9 +27,18 @@ class AppController {
 									'critical'	=> 'Critical',
 									'on_fire'	=> 'On Fire' );							
 	
-	public $time_segments = array(	60 		=> '< Hour',
-									240 	=> '< Half Day',
-									480		=> 'Full Day',
+	public $time_segments = array(	0		=> 'No Estimate',
+									30 		=> '1/2 Hour',
+									60 		=> '1 Hour',
+									90 		=> '1.5 Hours',
+									120 	=> '2 Hours',
+									180 	=> '3 Hours',
+									240 	=> '4 Hours',
+									300 	=> '5 Hours',
+									360 	=> '6 Hours',
+									420 	=> '7 Hours',
+									480		=> '8 Hours',
+									720		=> '1.5 Days',
 									960		=> '2 Days',
 									1140	=> '3 Days',
 									1920	=> '4 Days',
@@ -173,13 +182,19 @@ class AppController {
 		
 		if( $_GET['from'] ) {
 			
-			$where .= " and entry_date='" . date('Y-m-d') . "'";
+			$where .= " and entry_date>='" . date( 'Y-m-d 00:00:00', strtotime( $_GET['from'] ) ) . "'";
 			
-		}		
+		}
+		
+		if( $_GET['to'] ) {
+			
+			$where .= " and entry_date<='" . date( 'Y-m-d 23:59:59', strtotime( $_GET['to'] ) ) . "'";
+			
+		}			
 		
 		$this->time_entries_by_day = $this->time_entries->retrieve('pair','entry_date, sum( minutes ) as total_minutes',$where . " group by entry_date"); 
 
-		$this->time_entries = $this->time_entries->retrieve('all','project, task, user, entry_date, sum( minutes ) as total_minutes',$where . " group by project, task, user, entry_date order by entry_date"); 
+		$this->time_entries = $this->time_entries->retrieve('all','project, task, user, entry_date, sum( minutes ) as total_minutes',$where . " group by project, task, user, entry_date order by entry_date desc"); 
 			
 	}
 	
@@ -290,6 +305,60 @@ class AppController {
 	}
 			
 	public function tasks() {
+	
+		// set up search caching
+		$_GET['project'] = isset( $_GET['project'] )?$_GET['project']:$_SESSION['project'];
+		$_SESSION['project'] = $_GET['project']?$_GET['project']:'';
+		
+		$_GET['status'] = isset( $_GET['status'] )?$_GET['status']:$_SESSION['status'];
+		$_SESSION['status'] = $_GET['status']?$_GET['status']:'';
+		
+		$_GET['user'] = isset( $_GET['user'] )?$_GET['user']:$_SESSION['user'];
+		$_SESSION['user'] = $_GET['user']?$_GET['user']:'';
+		
+		$_GET['sorting'] = isset( $_GET['sorting'] )?$_GET['sorting']:$_SESSION['sorting'];
+		$_SESSION['sorting'] = $_GET['sorting']?$_GET['sorting']:'completion_order asc';
+	
+		$where = " where 1=1";
+		
+		if( $_GET['search'] ) {
+			
+			$where .= " and ( title like '%" . $_GET['search'] . "%' ) ";
+			
+		}
+		
+		if( $_GET['project'] ) {
+			
+			$where .= " and ( project = " . $_GET['project'] . " ) ";
+			
+		}
+		
+		if( $_GET['status'] ) {
+			
+			$where .= " and ( status = '" . $_GET['status'] . "' ) ";
+			
+		}
+		
+		if( $_GET['user'] ) {
+			
+			$where .= " and ( fixer = '" . $_GET['user'] . "' ) ";
+			
+		}
+			
+		$this->results = $this->tasks->retrieve('all','*',$where . ' order by ' . $_GET['sorting']); 
+			
+	}
+	
+	public function multiple() {
+	
+		if( count( $_POST ) ) {
+			
+			$this->tasks->saveMultiple( $_POST['multiple'] );
+			
+			header( 'Location: /' );
+			exit;
+			
+		}
 	
 		// set up search caching
 		$_GET['project'] = isset( $_GET['project'] )?$_GET['project']:$_SESSION['project'];

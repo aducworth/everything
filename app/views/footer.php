@@ -26,6 +26,9 @@
     	}
 		$(document).ready(function(){	
 		
+			$( "#sortable" ).sortable();
+			$( "#sortable" ).disableSelection();
+		
 			$('.datepicker').datepicker({
 				format: 'yyyy-mm-dd'
 			});

@@ -9,7 +9,7 @@ class Auth {
 						/* 'doctors' => array( 'doctors' => 'List Doctors', 'doctor' => 'Add Doctor' ), */
 						/* 'referrals' => array( 'referrals' => 'List Referrals', 'referral' => 'Add Referral', 'schedule' => 'View Schedule' ), */
 						/* 'reports' => array( 'report_by_location' => 'By Location', 'report_by_specialty' => 'By Specialty', 'report_by_doctor' => 'By Doctor' ), */
-						'projects' => array( 'projects' => 'List Projects', 'tasks' => 'List Tasks', 'activity' => 'List Activity', 'task' => 'Add Task' ),
+						'projects' => array( 'projects' => 'List Projects', 'tasks' => 'List Tasks', 'activity' => 'List Activity', 'task' => 'Add Task', 'multiple' => 'Multi-Edit' ),
 						'reports' => array( 'time' => 'Time' ) );
 						
 	var $office_menu = array( 

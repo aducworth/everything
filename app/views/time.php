@@ -8,6 +8,10 @@
 	  
 	  <?=$form->select( 'user', $controller->user_list, array( 'label' => '', 'default' => $_GET['user'], 'class' => '', 'empty' => ' ( Filter By User ) ' ) ) ?>
 	  
+	  <?=$form->textbox( 'from', array( 'label' => '', 'default' => $_GET['from'], 'class' => 'datepicker', 'placeholder' => 'from' ) ) ?>
+	  
+	  <?=$form->textbox( 'to', array( 'label' => '', 'default' => $_GET['to'], 'class' => 'datepicker', 'placeholder' => 'to' ) ) ?>
+	  
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 	

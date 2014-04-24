@@ -122,6 +122,25 @@ class Tasks extends DB {
 		
 	}
 	
+	public function saveMultiple( $tasks ) {
+		
+		if( count( $tasks ) ) {
+		
+			$index = 1;
+			
+			foreach( $tasks as $task ) {
+			
+				$task['completion_order'] = $index;
+				
+				$this->save( $task );		
+				
+				$index++;
+				
+			}
+			
+		}
+	}
+	
 	public function send_notifications( $task_id, $history = array() ) {
 	
 //		$task_info = $this->retrieve('one','*',' where id = ' . $task_id);
