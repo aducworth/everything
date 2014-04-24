@@ -6,19 +6,25 @@ class AppFunctions {
 	
 		$seconds = ( $minutes * 60 );
 	
-		$h_i_s = gmdate("H:i:s", $seconds);
+		$h_i_s = gmdate("j:G:i:s", $seconds);
 		
 		$h_i_s = explode( ':', $h_i_s );
 		
-		if( $h_i_s[0] > 0 ) {
+		if( $h_i_s[0] > 1 ) {
 			
-			return $h_i_s[0] . 'h' . $h_i_s[1] . 'm';
+			return $h_i_s[0] . 'd' . $h_i_s[1] . 'h' . $h_i_s[2] . 'm';
 			
 		}
 		
 		if( $h_i_s[1] > 0 ) {
 			
-			return $h_i_s[1] . 'm';
+			return $h_i_s[1] . 'h' . $h_i_s[2] . 'm';
+			
+		}
+		
+		if( $h_i_s[2] > 0 ) {
+			
+			return $h_i_s[2] . 'm';
 			
 		}
 		
