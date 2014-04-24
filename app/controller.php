@@ -6,6 +6,8 @@ include( 'models/tasks.php' );
 include( 'models/users.php' );
 include( 'models/time_entries.php' );
 include( 'models/histories.php' );
+include( 'models/tags.php' );
+include( 'models/task_views.php' );
 
 class AppController {
 
@@ -24,7 +26,17 @@ class AppController {
 									'high'		=> 'High',
 									'critical'	=> 'Critical',
 									'on_fire'	=> 'On Fire' );							
-									 
+	
+	public $time_segments = array(	60 		=> '< Hour',
+									240 	=> '< Half Day',
+									480		=> 'Full Day',
+									960		=> '2 Days',
+									1140	=> '3 Days',
+									1920	=> '4 Days',
+									2400	=> '5 Days',
+									4800	=> '10 Days',
+									7200	=> '15 Days' );	
+														 
 	function __construct() {
 	
 		$this->auth	= new Auth;
@@ -37,6 +49,8 @@ class AppController {
 		$this->users = new Users;
 		$this->time_entries = new TimeEntries;
 		$this->histories = new Histories;
+		$this->tags = new Tags;
+		$this->task_views = new TaskViews;
 		
 		$this->filepath = getcwd();
 		//$this->site_url = 'http://' . str_replace( 'admin.', '', $_SERVER['SERVER_NAME'] );
@@ -58,6 +72,8 @@ class AppController {
 			
 			$this->my_timesheet_list = $this->time_entries->retrieve('pair',"task,sum( minutes )"," where user = " . $_SESSION['logged_in_user']['id'] . " group by task"); 
 			$this->timesheet_list = $this->time_entries->retrieve('pair',"task,sum( minutes )"," group by task"); 
+			
+			$this->tag_list = $this->tags->retrieve('pair','distinct name, name',' order by name');
 		
 		}
 					
@@ -284,6 +300,9 @@ class AppController {
 		
 		$_GET['user'] = isset( $_GET['user'] )?$_GET['user']:$_SESSION['user'];
 		$_SESSION['user'] = $_GET['user']?$_GET['user']:'';
+		
+		$_GET['sorting'] = isset( $_GET['sorting'] )?$_GET['sorting']:$_SESSION['sorting'];
+		$_SESSION['sorting'] = $_GET['sorting']?$_GET['sorting']:'completion_order asc';
 	
 		$where = " where 1=1";
 		
@@ -311,7 +330,7 @@ class AppController {
 			
 		}
 			
-		$this->tasks = $this->tasks->retrieve('all','*',$where . ' order by title'); 
+		$this->results = $this->tasks->retrieve('all','*',$where . ' order by ' . $_GET['sorting']); 
 			
 	}
 	
@@ -502,6 +521,8 @@ class AppController {
 		if( $_GET['id'] ) {
 			
 			$this->result = $this->tasks->retrieve( 'one', '*', ' where id = ' . $_GET['id'] ); 
+			
+			$this->result['tags'] = implode( ', ', $this->tags->retrieve( 'pair','id,name',' where task_id = ' . $_GET['id'] ) );
 			
 			$_GET['task'] 		= $_GET['id'];
 			$_GET['project'] 	= $this->result['project'];

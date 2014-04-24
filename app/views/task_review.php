@@ -59,7 +59,7 @@
 				
 				<? endif; ?>
 				
-				<?=$form->textbox( 'time_estimate', array( 'label' => 'Estimate', 'default' => $controller->result['time_estimate'], 'class' => '' ) ) ?>
+				<?=$form->select( 'time_estimate', $controller->time_segments, array( 'label' => 'Estimate', 'default' => $controller->result['time_estimate'], 'class' => '', 'empty' => ' ( Choose Estimate ) ' ) ) ?>
 				
 				<?=$form->textbox( 'due_date', array( 'label' => 'Due Date', 'default' => $controller->result['due_date'], 'class' => 'required datepicker' ) ) ?>
 					

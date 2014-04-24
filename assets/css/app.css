@@ -106,3 +106,7 @@
 	text-align: center;
 	width: 48px;
 }
+
+.unread {
+	color: fuchsia;
+}

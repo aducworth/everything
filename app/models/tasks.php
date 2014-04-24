@@ -2,14 +2,39 @@
 
 class Tasks extends DB {
 
-	var $table = 'tasks';	
+	var $table = 'tasks';
+	
+	public $sorting_options = array( 
+									'completion_order asc'		=> 'Sort by Completion Order',
+									'due_date asc'				=> 'Sort by Due Date',
+									'created desc'				=> 'Sort by Creation Date',
+									'modified desc'				=> 'Sort by Last Modified' );
+									
 	
 	function __construct() {
 	
 		$this->histories = new Histories;
+		$this->tags = new Tags;
+		$this->task_views = new TaskViews;
 	
 		parent::__construct();
 	
+	}
+	
+	public function retrieve( $scope = 'all', $fields = '*', $conditions = '' ) {
+	
+		$data = parent::retrieve( $scope, $fields, $conditions );
+		
+		// if we're retrieving one here, go ahead and mark the timestamp
+		if( $scope == 'one' && $data['id'] ) {
+			
+			// update last viewed timestamp
+			$this->task_views->updateView( $data['id'] );
+		
+		}
+		
+		return $data;
+		
 	}
 	
 	public function save( $fields ) {
@@ -21,6 +46,10 @@ class Tasks extends DB {
 		
 		// format watchers
 		$fields['watchers'] = is_array( $fields['watchers'] )?implode( ',', $fields['watchers'] ):$fields['watchers'];
+		
+		// extract tags
+		$tags = isset( $fields['tags'] )?explode( ',', $fields['tags'] ):array();
+		unset( $fields['tags'] );
 		
 		// go ahead and save it
 		$toreturn = parent::save( $fields );
@@ -38,6 +67,12 @@ class Tasks extends DB {
 			
 		}
 		
+		// save the tags if this is an overall task save, not a quick one
+		if( $fields['project'] ) {
+		
+			$this->tags->saveTags( $fields['id'], $fields['project'], $tags );
+			
+		}		
 		
 		// if there is some history here, go ahead and save it
 		if( count( $history ) || $fields['comment'] ) {
@@ -52,6 +87,9 @@ class Tasks extends DB {
 		
 		// send notifications
 		$this->send_notifications( $fields['id'], $history );
+		
+		// update last viewed timestamp
+		//$this->task_views->updateView( $fields['id'] );
 		
 		return $toreturn;
 		

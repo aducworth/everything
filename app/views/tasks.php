@@ -2,7 +2,7 @@
 
 <div class="row task-filter">
 
-	<form class="navbar-form navbar-left" role="search">
+	<form action='/tasks' class="navbar-form navbar-left" role="search">
 	
 	  <?=$form->select( 'project', $controller->active_project_list, array( 'label' => '', 'default' => $_GET['project'], 'class' => '', 'empty' => ' ( Filter By Project ) ' ) ) ?>
 	  
@@ -10,12 +10,18 @@
 	  
 	  <?=$form->select( 'user', $controller->user_list, array( 'label' => '', 'default' => $_GET['user'], 'class' => '', 'empty' => ' ( Filter By User ) ' ) ) ?>
 	  
-	  <button type="submit" class="btn btn-default">Submit</button>
+	  <?=$form->select( 'sorting', $controller->tasks->sorting_options, array( 'label' => '', 'default' => $_GET['sorting'], 'class' => '' ) ) ?>
+	  
+	  <div class='form-group'>
+	  	<!-- <div class='col-lg-10'> -->
+	  		<button type="submit" class="btn btn-default">Submit</button>
+	  	<!-- </div> -->
+	  </div>
 	</form>
 	
 </div>
 
-<? if( count( $controller->tasks ) ): ?>
+<? if( count( $controller->results ) ): ?>
 	<?
 	
 		$time_estimated = 0;
@@ -24,7 +30,7 @@
 		
 	?>
 	
-	<? foreach( $controller->tasks as $r ): ?>
+	<? foreach( $controller->results as $r ): ?>
 	
 	<?
 	
@@ -34,7 +40,7 @@
 		
 	?>
 	
-		<div class="row task-list <?=$r['priority'] ?>">
+		<div class="row task-list <?=$r['priority'] ?> <?=$controller->task_views->isUnread( $r )?'unread':'' ?>">
 			<div class="col-md-2"><span class='task-label'><?=$controller->statuses[ $r['status'] ] ?></span></div>
 			<div class="col-md-6">
 				<a href='/task_review?id=<?=$r['id'] ?>'>#<?=$r['id'] ?>: <?=$r['title'] ?></a>

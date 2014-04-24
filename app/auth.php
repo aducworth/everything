@@ -30,8 +30,10 @@ class Auth {
 
 	function __construct() {
 	
-		$action = $_GET['url']?$_GET['url']:'index';
+		$_GET['url'] = str_replace( '/', '', $_GET['url'] );
 	
+		$action = $_GET['url']?$_GET['url']:'index';
+		
 		if( !$this->logged_in() && !in_array( $action, $this->allow ) ) {
 		
 			header( 'Location: /login' );
