@@ -13,9 +13,9 @@
 		<div class='form-group'>
 		
 			<label for='input-' class='col-lg-2 control-label'>Profile Pic</label>
-	    
-			<img src="<?=$controller->site_url ?>/assets/images/uploads/thumbnails/<?=$controller->result['image'] ?>" class="img-thumbnail"/>
 			
+			<?=$controller->users->get_avatar( $controller->result['id'] ) ?>
+	    
 		</div>
 	    
 	<? endif; ?>
@@ -42,7 +42,7 @@
 	
 	<? endif; ?>
 	
-	<?=$form->file( 'image', array( 'label' => 'Logo', 'default' => $controller->result['image'], 'class' => 'required', 'help' => 'Image ( Please restrict photos to jpgs. The image will automatically be resized. )' ) ) ?>
+	<?=$form->file( 'image', array( 'label' => 'Logo', 'default' => $controller->result['image'], 'class' => '', 'help' => 'Image ( Please restrict photos to jpgs. The image will automatically be resized. )' ) ) ?>
     
     <?=$form->password( 'password', array( 'label' => 'Password', 'class' => ($_GET['id']?'':'required') ) ) ?>
     
