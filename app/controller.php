@@ -214,10 +214,76 @@ class AppController {
 	
 	public function timesheet() {
 	
-		$where = " where user = " . $_SESSION['logged_in_user']['id'] . " and entry_date='" . date('Y-m-d') . "'";
+		$_GET['timescope'] = isset( $_GET['timescope'] )?$_GET['timescope']:$_SESSION['timescope'];
+		$_SESSION['timescope'] = $_GET['timescope']?$_GET['timescope']:'daily';
+		$_GET['current'] = $_GET['current']?$_GET['current']:date('Y-m-d');
 		
-		$this->time_entries = $this->time_entries->retrieve('all','*',$where); 
+		if( $_SESSION['timescope'] == 'weekly' ) {
+			
+			if( $_GET['action'] == 'previous' ) {
+				
+				$_GET['current'] = date( 'Y-m-d', strtotime( '-1 week', strtotime( $_GET['current'] ) ) );
+				
+			}
+			
+			if( $_GET['action'] == 'next' ) {
+				
+				$_GET['current'] = date( 'Y-m-d', strtotime( '+1 week', strtotime( $_GET['current'] ) ) );
+				
+			}
+			
+			$current_day_of_week = date( 'N', strtotime( $_GET['current'] ) );
+			
+			$this->start_day = date( 'Y-m-d', strtotime( '-' . ( $current_day_of_week - 1 ) . ' days', strtotime( $_GET['current'] ) ) );
+			$this->end_day = date( 'Y-m-d', strtotime( '+' . ( 7 - $current_day_of_week ) . ' days', strtotime( $_GET['current'] ) ) );
+			
+			$this->results = array();
+			$day_filter = array();
+			
+			$current_day = $this->start_day;
+			
+			for( $i=1; $i<8; $i++ ) {
+			
+				$day_filter[] = "entry_date='" . $current_day . "'";
+				
+				$where = " where user = " . $_SESSION['logged_in_user']['id'] . " and entry_date='" . $current_day . "'";
+				
+				$day_entries = $this->time_entries->retrieve('all','*',$where); 		
+				
+				foreach( $day_entries as $de ) {
+					
+					$this->results[ $current_day ][ $de['project'] ][ $de['task'] ] = $de['minutes'];	
+					
+				}					
+				
+				$current_day = date( 'Y-m-d', strtotime( '+1 day', strtotime( $current_day ) ) );
+				
+			}
+			
+			$this->task_results = $this->time_entries->retrieve('all','distinct project, task',' where ( ' . implode( ' or ', $day_filter )  . ' )');
+			
+			//print_r( $this->results );
+
+		} else {
+		
+			if( $_GET['action'] == 'previous' ) {
+				
+				$_GET['current'] = date( 'Y-m-d', strtotime( '-1 day', strtotime( $_GET['current'] ) ) );
+				
+			}
+			
+			if( $_GET['action'] == 'next' ) {
+				
+				$_GET['current'] = date( 'Y-m-d', strtotime( '+1 day', strtotime( $_GET['current'] ) ) );
+				
+			}
 	
+			$where = " where user = " . $_SESSION['logged_in_user']['id'] . " and entry_date='" . $_GET['current'] . "'";
+			
+			$this->time_entries = $this->time_entries->retrieve('all','*',$where); 			
+			
+		}
+			
 	}
 	
 	public function _start_tracker() {
