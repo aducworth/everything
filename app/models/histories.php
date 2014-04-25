@@ -6,6 +6,32 @@ class Histories extends DB {
 	
 	public $tocheck = array( 'time_estimate', 'fixer', 'tester', 'due_date', 'status' );
 	
+	function __construct() {
+	
+		$this->attachments = new Attachments;
+	
+		parent::__construct();
+	
+	}
+	
+	public function save( $fields ) {
+	
+		// go ahead and save it
+		$toreturn = parent::save( $fields );
+		
+		if( !$fields['id'] ) {
+			
+			$fields['id'] = mysql_insert_id();
+			
+		}
+		
+		// try to upload any supporting attachments
+		$this->attachments->upload( $_FILES['attachments'], $fields['task'], 0, $fields['id'] );
+		
+		return $toreturn;
+	
+	}
+	
 	public function build_history_action( $history, $users ) {
 	
 		$functions = new AppFunctions;
@@ -50,6 +76,15 @@ class Histories extends DB {
 					
 				}
 			}
+			
+		}
+		
+		// check to see if attachment was added
+		if( $history['added_attachments'] ) {
+			
+			$changes[] = ' added attachments';
+			
+			$total++;
 			
 		}
 		

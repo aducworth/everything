@@ -8,7 +8,7 @@ class DB {
 
 	function __construct() {
 	
-		$this->connect();
+		//$this->connect();
 	
 	}
 	

@@ -94,12 +94,12 @@
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;
 	border-radius: 6px;
-	float: left;
-	height: 48px;
+	/* float: left; */
+	height: 100px;
 	margin-right: 18px;
 	overflow: hidden;
 	position: relative;
-	width: 48px;
+	width: 100px;
 }
 
 .issue-member-avatar span {
@@ -115,8 +115,10 @@
 	color: white;
 	display: block;
 	font: normal 18px/22px "AvenirLT-Black","Helvetica Neue",Helvetica,Arial,sans-serif;
-	/* height: 22px; */
-	padding: 14px 0 12px 0;
+	font-size: xx-large;
+	height: 100px;
+	line-height: 100px;
+	/* padding: 14px 0 12px 0; */
 	text-align: center;
-	width: 48px;
+	width: 100px;
 }

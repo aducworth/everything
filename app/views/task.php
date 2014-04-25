@@ -35,6 +35,8 @@
 	<?=$form->textarea( 'description', array( 'label' => 'Description', 'default' => $controller->result['description'], 'class' => '' ) ) ?>
 	
 	<?=$form->textbox( 'tags', array( 'label' => 'Tags', 'default' => $controller->result['tags'], 'class' => '' ) ) ?>
+	
+	<?=$form->file( 'attachments[1]', array( 'label' => 'Attachment', 'class' => '' ) ) ?>
 
 	<?=$form->buttons( 'task', $_GET['id'] ) ?>
 

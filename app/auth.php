@@ -42,6 +42,7 @@ class Auth {
 		}
 		
 		$this->db = new DB;
+		$this->db->connect();
 		
 		// check the database connection
 		if( !$this->db->connection && $action != 'db_setup' ) {

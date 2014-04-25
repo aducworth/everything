@@ -33,6 +33,20 @@
 							
 							<p><?=$functions->convertText( $c['comment'] ) ?></p>
 							
+							<? if( $c['added_attachments'] ): ?>
+							
+								<? foreach( $controller->result['attachments'] as $a ): ?>
+								
+									<? if( $a['history_id'] == $c['id'] ): ?>
+				
+										<a href="/assets/images/uploads/tmp/<?=$a['filename'] ?>" target="_blank"><?=$a['name'] ?></a><br>
+										
+									<? endif; ?>
+									
+								<? endforeach; ?>
+							
+							<? endif; ?>
+							
 						</div>
 					
 					</div>
@@ -69,6 +83,8 @@
 				<?=$form->select( 'tester', $controller->user_list, array( 'label' => 'Tester', 'default' => $controller->result['tester'], 'class' => 'required', 'empty' => ' ( Choose ) ' ) ) ?>
 				
 				<?=$form->textarea( 'comment', array( 'label' => 'Comment', 'default' => '', 'class' => '' ) ) ?>
+				
+				<?=$form->file( 'attachments[1]', array( 'label' => 'Attachment', 'class' => '' ) ) ?>
 			
 				<?=$form->buttons( 'comment', 0 ) ?>
 			
@@ -99,13 +115,25 @@
 			
 			<? $watchers = explode( ',', $controller->result['watchers'] ); ?>
 			
-			<? if( count( $watchers ) ): ?>
+			<? if( $controller->result['watchers'] && count( $watchers ) ): ?>
 			
 				<h3>CC'd</h3>
 			
 				<? foreach( $watchers as $w ): ?>
 				
 					<?=$controller->user_list[ $w ] ?><br>
+					
+				<? endforeach; ?>
+			
+			<? endif; ?>
+			
+			<? if( count( $controller->result['attachments'] ) ): ?>
+			
+				<h3>Attachments</h3>
+			
+				<? foreach( $controller->result['attachments'] as $a ): ?>
+				
+					<a href="/assets/images/uploads/tmp/<?=$a['filename'] ?>" target="_blank"><?=$a['name'] ?></a><br>
 					
 				<? endforeach; ?>
 			

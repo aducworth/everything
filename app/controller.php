@@ -8,6 +8,7 @@ include( 'models/time_entries.php' );
 include( 'models/histories.php' );
 include( 'models/tags.php' );
 include( 'models/task_views.php' );
+include( 'models/attachments.php' );
 
 class AppController {
 
@@ -60,6 +61,7 @@ class AppController {
 		$this->histories = new Histories;
 		$this->tags = new Tags;
 		$this->task_views = new TaskViews;
+		$this->attachments = new Attachments;
 		
 		$this->filepath = getcwd();
 		//$this->site_url = 'http://' . str_replace( 'admin.', '', $_SERVER['SERVER_NAME'] );
@@ -628,6 +630,8 @@ class AppController {
 			
 			$this->result['histories'] = $this->histories->retrieve( 'all', '*', ' where task = ' . $_GET['id'] ); 
 			
+			$this->result['attachments'] = $this->attachments->retrieve( 'all', '*', ' where task_id = ' . $_GET['id'] ); 
+			
 			$this->result['task_timesheet'] = $this->time_entries->retrieve('pair',"user,sum( minutes )"," where task = " . $_GET['id']  . " group by user"); 
 															
 		}
@@ -682,7 +686,7 @@ class AppController {
 					$resizeObj -> saveImage( $path . 'resized/' . $_POST['image'], 100 );
 									
 					$resizeObj = new resize( $path . 'tmp/' . $_POST['image'] );
-					$resizeObj -> resizeImage( 100, 100, 'landscape' );
+					$resizeObj -> resizeImage( 100, 100, 'crop' );
 					$resizeObj -> saveImage( $path . 'thumbnails/' . $_POST['image'], 100 );
 				
 				} else {

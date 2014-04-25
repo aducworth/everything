@@ -65,6 +65,12 @@ class Tasks extends DB {
 			$history['new_due_date'] = $fields['due_date'];
 			$history['new_status'] = $fields['status'];
 			
+			if( $this->hasAttachments() ) {
+				
+				$history['added_attachments'] = 1;
+				
+			}
+			
 		}
 		
 		// save the tags if this is an overall task save, not a quick one
@@ -79,7 +85,6 @@ class Tasks extends DB {
 		
 			$history['task'] = $fields['id'];
 			$history['user'] = $_SESSION['logged_in_user']['id'];
-			$history['comment'] = $fields['comment'];
 			
 			$this->histories->save( $history );			
 			
@@ -114,11 +119,41 @@ class Tasks extends DB {
 				
 				}
 				
-			}			
+			}
 			
+			if( $this->hasAttachments() ) {
+				
+				$toreturn['added_attachments'] = 1;
+				
+			}
+			
+			if( $fields['comment'] ) {
+				
+				$toreturn['comment'] = $fields['comment'];
+				
+			}
+						
 		}
 		
 		return $toreturn;
+		
+	}
+	
+	public function hasAttachments() {
+		
+		$toreturn = false;
+		
+		foreach( $_FILES['attachments']['name'] as $name ) {
+			
+			if( $name ) {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
 		
 	}
 	
