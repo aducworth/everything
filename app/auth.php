@@ -36,6 +36,9 @@ class Auth {
 		
 		if( !$this->logged_in() && !in_array( $action, $this->allow ) ) {
 		
+			$_SESSION['cached_request'] = $_SERVER['REQUEST_URI'];
+			//echo( 'query string: ' . $_SERVER['QUERY_STRING'] );
+		
 			header( 'Location: /login' );
 			exit;
 		

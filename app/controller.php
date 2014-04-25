@@ -133,8 +133,17 @@ class AppController {
 		
 			if( $this->auth->login() ) {
 			
-				header( 'Location: /' );
-				exit;
+				if( $_SESSION['cached_request'] ) {
+					
+					header( 'Location: ' . $_SESSION['cached_request'] );
+					exit;
+					
+				} else {
+					
+					header( 'Location: /' );
+					exit;
+					
+				}				
 				
 			} else {
 			
@@ -147,6 +156,9 @@ class AppController {
 	}
 	
 	public function logout() {
+	
+		// close open entries for this user
+		$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
 	
 		$this->auth->logout();
 		header( 'Location: /' );

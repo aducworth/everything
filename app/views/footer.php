@@ -33,9 +33,13 @@
 				format: 'yyyy-mm-dd'
 			});
 		
-			update_tracker();
+			<? if( $controller->auth->logged_in() ): ?>
 			
-			setInterval(function(){update_tracker()},10000);	
+				update_tracker();
+				
+				setInterval(function(){update_tracker()},10000);	
+			
+			<? endif; ?>
 			
 			$("#data-form").validate({
 			  rules: {
