@@ -130,10 +130,14 @@
 			<? if( count( $controller->result['attachments'] ) ): ?>
 			
 				<h3>Attachments</h3>
+				
+				<? $i = 1; ?>
 			
 				<? foreach( $controller->result['attachments'] as $a ): ?>
 				
-					<a href="/assets/images/uploads/tmp/<?=$a['filename'] ?>" target="_blank"><?=$a['name'] ?></a><br>
+					#<?=$i ?> <a href="/assets/images/uploads/tmp/<?=$a['filename'] ?>" target="_blank"><?=$a['name'] ?></a><br>
+					
+					<? $i++; ?>
 					
 				<? endforeach; ?>
 			

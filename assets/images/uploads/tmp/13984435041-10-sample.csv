@@ -1,0 +1,298 @@
+"title","customer_name","customer_phone","customer_email","billing_address","shipping_address","shipping_fname","shipping_lname","order_total","order_tax","order_shipping","shipping_option","coupons","order_source","ship_to_residential","product_sku","row_id","row_order","order_id","entry_id","title","quantity","price","price_plus_tax","weight","shipping","no_tax","no_shipping","extra"
+"Order #229573"," ","","ryan231216231216@ryanshrum.com","
+,  ","33 Joost Ave
+San Francisco, CA 94131","Flo","Sample Test",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1001",93,0,231216,148164,"BookBook for MacBook Pro — Black — 13""",1,0,0,5,0,1,0,""
+"Order #229573"," ","","ryan231216231216@ryanshrum.com","
+,  ","33 Joost Ave
+San Francisco, CA 94131","Flo","Sample Test",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1002",94,1,231216,148165,"BookBook for MacBook Pro — Red — 13""",1,0,0,5,0,1,0,""
+"Order #229573"," ","","ryan231216231216@ryanshrum.com","
+,  ","33 Joost Ave
+San Francisco, CA 94131","Flo","Sample Test",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1003",95,2,231216,148180,"BookBook for MacBook Pro — Black — 15""",1,0,0,5,0,1,0,""
+"Order #229573"," ","","ryan231216231216@ryanshrum.com","
+,  ","33 Joost Ave
+San Francisco, CA 94131","Flo","Sample Test",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1004",96,3,231216,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229586"," ","","ryan231245231245@ryanshrum.com",",  ","Unit 8900 Box 114
+Dpo, AK 09831","Flo","Sample Test",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1005",109,0,231245,148182,"BookBook for MacBook Pro — Black — 17""",2,0,0,5,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1006",111,0,231249,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1101",112,1,231249,148198,"MagicWand",1,0,0,1,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1102",113,2,231249,148192,"BookArc for MacBook Air",1,0,0,2,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1103",114,3,231249,148159,"BookBook for MacBook Air & Retina — 11""",1,0,0,4,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1104",115,4,231249,148160,"BookBook for MacBook Air & Retina — 13""",1,0,0,4,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1107",116,5,231249,148202,"Compass for iPad — Black",1,0,0,2,0,1,0,""
+"Order #229588"," ","","ryan231249231249@ryanshrum.com","
+,  ","3150 Cedar Glade Lane
+Buford, GA 30519","Flo","Sample Test",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1106",117,6,231249,148200,"Compass for iPad — Silver",1,0,0,2,0,1,0,""
+"Order #229590"," ","","ryan231259231259@ryanshrum.com","
+,  ","Associate Beauty & Lifestyles Editor, Siempre Mujer, 805 Third Avenue, 25th Floor
+New York, NY 10022","Flo","Sample Test",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1109",119,0,231259,148199,"BassJump 2 for MacBook",2,0,0,4,0,1,0,""
+"Order #229590"," ","","ryan231259231259@ryanshrum.com","
+,  ","Associate Beauty & Lifestyles Editor, Siempre Mujer, 805 Third Avenue, 25th Floor
+New York, NY 10022","Flo","Sample Test",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1112",120,1,231259,148196,"PlugBug",3,0,0,2,0,1,0,""
+"Order #229590"," ","","ryan231259231259@ryanshrum.com","
+,  ","Associate Beauty & Lifestyles Editor, Siempre Mujer, 805 Third Avenue, 25th Floor
+New York, NY 10022","Flo","Sample Test",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1201",121,2,231259,148211,"SurfacePad for MacBook — Air — Jet Black — 11""",1,0,0,1,0,1,0,""
+"Order #229590"," ","","ryan231259231259@ryanshrum.com","
+,  ","Associate Beauty & Lifestyles Editor, Siempre Mujer, 805 Third Avenue, 25th Floor
+New York, NY 10022","Flo","Sample Test",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1202",122,3,231259,148210,"SurfacePad for MacBook — Air — Red Pop — 11""",1,0,0,1,0,1,0,""
+"Order #229592"," ","","ryan231266231266@ryanshrum.com","
+,  ","3 Eden Bank, Etterby Road, Carlisle
+cumbria,  CA3 9QS ","Flo","Sample test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1203",124,0,231266,148213,"SurfacePad for MacBook — Air — Jet Black — 13""",1,0,0,1,0,1,0,""
+"Order #229592"," ","","ryan231266231266@ryanshrum.com","
+,  ","3 Eden Bank, Etterby Road, Carlisle
+cumbria,  CA3 9QS ","Flo","Sample test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1204",125,1,231266,148212,"SurfacePad for MacBook — Air — Red Pop — 13""",1,0,0,1,0,1,0,""
+"Order #229592"," ","","ryan231266231266@ryanshrum.com","
+,  ","3 Eden Bank, Etterby Road, Carlisle
+cumbria,  CA3 9QS ","Flo","Sample test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1206",126,2,231266,148187,"BookBook for iPhone 4 — Black",1,0,0,0,0,1,0,""
+"Order #229592"," ","","ryan231266231266@ryanshrum.com","
+,  ","3 Eden Bank, Etterby Road, Carlisle
+cumbria,  CA3 9QS ","Flo","Sample test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1208",127,3,231266,148186,"BookBook for iPhone 4 — Brown",1,0,0,2,0,1,0,""
+"Order #229593"," ","","ryan231271231271@ryanshrum.com","
+,  ","CHIP Xonio Online GmbH, Possistrasse 11
+Munich,  80336","Flo","Sample Test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1209",128,0,231271,148189,"BookBook for iPad — Black",1,0,0,3,0,1,0,""
+"Order #229593"," ","","ryan231271231271@ryanshrum.com","
+,  ","CHIP Xonio Online GmbH, Possistrasse 11
+Munich,  80336","Flo","Sample Test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1210",129,1,231271,148188,"BookBook for iPad — Brown",1,0,0,3,0,1,0,""
+"Order #229593"," ","","ryan231271231271@ryanshrum.com","
+,  ","CHIP Xonio Online GmbH, Possistrasse 11
+Munich,  80336","Flo","Sample Test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1211",130,2,231271,148197,"PlugBug World",1,0,0,2,0,1,0,""
+"Order #229593"," ","","ryan231271231271@ryanshrum.com","
+,  ","CHIP Xonio Online GmbH, Possistrasse 11
+Munich,  80336","Flo","Sample Test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1215",131,3,231271,148203,"HoverBar for iPad",1,0,0,5,0,1,0,""
+"Order #229593"," ","","ryan231271231271@ryanshrum.com","
+,  ","CHIP Xonio Online GmbH, Possistrasse 11
+Munich,  80336","Flo","Sample Test",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1216",132,4,231271,148205,"SurfacePad for iPhone — Jet Black — 4/4s",1,0,0,1,0,1,0,""
+"Order #229594"," ","","ryan231277231277@ryanshrum.com","
+,  ","Trekschurenstraat 100
+Hasselt,  3500","Flo","Sample Test",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1218",133,0,231277,148204,"SurfacePad for iPhone — Red Pop — 4/4s",1,0,0,1,0,1,0,""
+"Order #229594"," ","","ryan231277231277@ryanshrum.com","
+,  ","Trekschurenstraat 100
+Hasselt,  3500","Flo","Sample Test",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1217",134,1,231277,148206,"SurfacePad for iPhone — Modern White — 4/4s",1,0,0,1,0,1,0,""
+"Order #229594"," ","","ryan231277231277@ryanshrum.com","
+,  ","Trekschurenstraat 100
+Hasselt,  3500","Flo","Sample Test",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1228",135,2,231277,148208,"SurfacePad for iPhone — Jet Black — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229594"," ","","ryan231277231277@ryanshrum.com","
+,  ","Trekschurenstraat 100
+Hasselt,  3500","Flo","Sample Test",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1230",136,3,231277,148207,"SurfacePad for iPhone — Red Pop — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229594"," ","","ryan231277231277@ryanshrum.com","
+,  ","Trekschurenstraat 100
+Hasselt,  3500","Flo","Sample Test",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1229",137,4,231277,148209,"SurfacePad for iPhone — Modern White — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229757"," ","","ryan232463232463@ryanshrum.com","
+,  ","Level 9, Vero centre
+Auckland, Auckland 1010","Mike","Hartwell",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1221",408,0,232463,148190,"BookBook for iPad — Red",1,0,0,3,0,1,0,""
+"Order #229761"," ","","ryan232508232508@ryanshrum.com","
+,  ","34, JALAN SS14/4B
+SUBANG JAYA, SELANGOR 47500","MIKE","HARTWELL",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1006",412,0,232508,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
+"Order #229762"," ","","ryan232510232510@ryanshrum.com","
+,  ","colina de la ilusion 25 boulevares Naucalpan
+Mexico, Estado de Mexico 53140","Mike","Hartwell",0.00,0.00,0.00,"DHL International","","Sample","y","12-1005",413,0,232510,148182,"BookBook for MacBook Pro — Black — 17""",1,0,0,5,0,1,0,""
+"Order #229770"," ","","ryan232531232531@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, Toyko 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1004",426,0,232531,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1003",427,0,232533,148180,"BookBook for MacBook Pro — Black — 15""",2,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1223",428,1,232533,148194,"HiRise for iMac",1,0,0,6,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1001",429,2,232533,148164,"BookBook for MacBook Pro — Black — 13""",1,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1002",430,3,232533,148165,"BookBook for MacBook Pro — Red — 13""",1,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1004",431,4,232533,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1005",432,5,232533,148182,"BookBook for MacBook Pro — Black — 17""",1,0,0,5,0,1,0,""
+"Order #229771"," ","","ryan232533232533@ryanshrum.com","
+,  ","5-19-15-102
+Nerima-ku, tokyo 1770051","Mike","Hartwell",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1006",433,6,232533,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
+"Order #229784"," ","","ryan232579232579@ryanshrum.com","
+,  ","725 N. Manhattan Place
+Los Angeles, CA 90038","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","y","12-1005",460,0,232579,148182,"BookBook for MacBook Pro — Black — 17""",1,0,0,5,0,1,0,""
+"Order #229786"," ","","ryan232583232583@ryanshrum.com","
+,  ","4100 Travis Street
+Dallas, TX 75204","Macy","White",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1006",462,0,232583,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
+"Order #229787"," ","","ryan232585232585@ryanshrum.com","
+,  ","5907 Pine View Ct
+Jeffersonvlle, IN 47130","Macy","White",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1101",463,0,232585,148198,"MagicWand",1,0,0,1,0,1,0,""
+"Order #229788"," ","","ryan232587232587@ryanshrum.com","
+,  ","3141 Vivian
+Monroe, MI 48162","Macy","White",0.00,0.00,0.00,"UPS 2nd Day Air","","Sample","y","12-1102",464,0,232587,148192,"BookArc for MacBook Air",1,0,0,2,0,1,0,""
+"Order #229789"," ","","ryan232589232589@ryanshrum.com","
+,  ","1221 Brickell Ave 5 floor
+Miami, FL 33131","Macy","White",0.00,0.00,0.00,"FedEx GROUND","","Sample","n","12-1103",465,0,232589,148159,"BookBook for MacBook Air & Retina — 11""",1,0,0,4,0,1,0,""
+"Order #229790"," ","","ryan232591232591@ryanshrum.com","
+,  ","645 Manhattan Ave.
+Brooklyn, NY 11222","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","n","12-1230",466,0,232591,148207,"SurfacePad for iPhone — Red Pop — 5/5s/5c",1,0,0,1,0,0,0,""
+"Order #229791"," ","","ryan232593232593@ryanshrum.com","
+,  ","2516 Baylor st
+Houston, TX 77009","Bennett","Coleman",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1230",467,0,232593,148207,"SurfacePad for iPhone — Red Pop — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229792"," ","","ryan232595232595@ryanshrum.com","
+,  ","908 Ryan Road
+Florence, MA 1062","Bennett","Coleman",0.00,0.00,0.00,"Call For Routing","","Sample","n","12-1221",468,0,232595,148190,"BookBook for iPad — Red",1,0,0,3,0,1,0,""
+"Order #229793"," ","","ryan232597232597@ryanshrum.com","
+,  ","36886 Heatherton Dr
+Farmington, MI 48335","Bennett","Coleman",0.00,0.00,0.00,"UPS 2nd Day Air","","Sample","y","12-1302",469,0,232597,148218,"BackPack for iMac",1,0,0,2,0,1,0,""
+"Order #229794"," ","","ryan232599232599@ryanshrum.com","
+,  ","5 Amor Court, YAMANTO
+Ipswich, QLD 4305","Bennett","Coleman",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1302",470,0,232599,148218,"BackPack for iMac",1,0,0,2,0,1,0,""
+"Order #229795"," ","","ryan232601232601@ryanshrum.com","
+,  ","Herenweg 20
+Knokke-Heist, West-Vlaanderen 8300","Bennett","Coleman",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1302",471,0,232601,148218,"BackPack for iMac",1,0,0,2,0,1,0,""
+"Order #229796"," ","","ryan232603232603@ryanshrum.com","
+,  ","Av Hugo Alessi 550
+Araguari, Minas Gerais 38442028","Bennett","Coleman",0.00,0.00,0.00,"DHL International","","Sample","y","12-1305",472,0,232603,148217,"SurfacePad for MacBook — Pro — Jet Black — 15""",1,0,0,1,0,1,0,""
+"Order #229802"," ","","ryan232633232633@ryanshrum.com","
+,  ","71 Southgate Rd
+Waterbury, CT 06708","Macy","White",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1106",496,0,232633,148200,"Compass for iPad — Silver",1,0,0,2,0,1,0,""
+"Order #229803"," ","","ryan232635232635@ryanshrum.com","
+,  ","2314 rt 59
+plainfield, IL 60586","Macy","White",0.00,0.00,0.00,"FedEx 2 Day","","Sample","n","12-1107",497,0,232635,148202,"Compass for iPad — Black",1,0,0,2,0,1,0,""
+"Order #229804"," ","","ryan232637232637@ryanshrum.com","
+,  ","208 Carpenter Street
+Philadelphia, PA 19147","Macy","White",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1109",498,0,232637,148199,"BassJump 2 for MacBook",1,0,0,4,0,1,0,""
+"Order #229805"," ","","ryan232639232639@ryanshrum.com","
+,  ","V korytech 3234/18a
+Praha 10, Czech Republic 10000","Macy","White",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1002",499,0,232639,148165,"BookBook for MacBook Pro — Red — 13""",1,0,0,5,0,1,0,""
+"Order #229806"," ","","ryan232641232641@ryanshrum.com","
+,  ","Lindennaundorfer Weg 19
+Leipzig, SN 4205","Macy","White",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1003",500,0,232641,148180,"BookBook for MacBook Pro — Black — 15""",1,0,0,5,0,1,0,""
+"Order #229806"," ","","ryan232641232641@ryanshrum.com","
+,  ","Lindennaundorfer Weg 19
+Leipzig, SN 4205","Macy","White",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1221",501,1,232641,148190,"BookBook for iPad — Red",1,0,0,3,0,1,0,""
+"Order #229807"," ","","ryan232644232644@ryanshrum.com","
+,  ","148 Centerfield Drive
+Courtice, ON L1E 1M1","jenelle","k",0.00,0.00,0.00,"UPS Standard","","Sample","y","12-1306",502,0,232644,148216,"SurfacePad for MacBook — Pro — Red Pop — 15""",1,0,0,1,0,1,0,""
+"Order #229808"," ","","ryan232646232646@ryanshrum.com","
+,  ","Ste. 406, 4935-40th Ave NW
+Calgary, AB T3A 2N1","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","n","12-1223",503,0,232646,148194,"HiRise for iMac",1,0,0,6,0,1,0,""
+"Order #229809"," ","","floraykes232648232648@gmail.com","
+,  ","28 Albemarle Park
+Beckenham, Kent BR3 5XG","Macy","White",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1004",504,0,232648,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229810"," ","","flo_10232650232650@ehousestudio.com",",  ","Uaboe District
+Uaboe, Uaboe 249","jenelle","k",0.00,0.00,0.00,"Call For Routing","","Sample","n","12-1001",505,0,232650,148164,"BookBook for MacBook Pro — Black — 13""",1,0,0,5,0,1,0,""
+"Order #229811"," ","","flo232652232652@ehousestudio.com","
+,  ","310 S. 19th Ave E
+Duluth, MN 55812","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","y","12-1112",506,0,232652,148196,"PlugBug",1,0,0,2,0,1,0,""
+"Order #229812"," ","","flo232654232654@ehousestudio.com","
+,  ","King Fahd Road
+Abu Arish, Jizan 45911","jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1002",507,0,232654,148165,"BookBook for MacBook Pro — Red — 13""",1,0,0,5,0,1,0,""
+"Order #229813"," ","","flo232656232656@ehousestudio.com","
+,  ","6234 Arno Road
+Franklin, TN 37064","Macy","White",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1201",508,0,232656,148211,"SurfacePad for MacBook — Air — Jet Black — 11""",1,0,0,1,0,1,0,""
+"Order #229814"," ","","flo232658232658@ehousestudio.com","
+,  ","152 1/2 Ord Street
+San Francisco, CA 94114","Macy","White",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1202",509,0,232658,148210,"SurfacePad for MacBook — Air — Red Pop — 11""",1,0,0,1,0,1,0,""
+"Order #229815"," ","","flo232660232660@ehousestudio.com","
+,  ","7140 Simms St Unit 104
+Arvada, CO 80004","Macy","White",0.00,0.00,0.00,"UPS 2nd Day Air","","Sample","y","12-1203",510,0,232660,148213,"SurfacePad for MacBook — Air — Jet Black — 13""",1,0,0,1,0,1,0,""
+"Order #229816"," ","","flo232662232662@ehousestudio.com","
+,  ","180 A Sainik Farms
+Khanpur, New Delhi 110062","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1003",511,0,232662,148180,"BookBook for MacBook Pro — Black — 15""",1,0,0,5,0,1,0,""
+"Order #229817"," ","","flo232664232664@ehousestudio.com","
+,  ","114 Indian Hollow Ct
+Mahwah, NJ 07430","Macy","White",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1204",512,0,232664,148212,"SurfacePad for MacBook — Air — Red Pop — 13""",1,0,0,1,0,1,0,""
+"Order #229818"," ","","flo232666232666@ehousestudio.com","
+,  ","4025 Deepwood Road
+Baltimore, MD 21218","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","y","12-1206",513,0,232666,148187,"BookBook for iPhone 4 — Black",1,0,0,0,0,1,0,""
+"Order #229819"," ","","flo232668232668@ehousestudio.com","
+,  ","Via Don Bosco 5
+Motta Visconti, Milano 20086","Jenelle","k",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1004",514,0,232668,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229820"," ","","flo232670232670@ehousestudio.com","
+,  ","3000 old Alabama rd
+Alpharetta, GA 30022","Macy","White",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","n","12-1208",515,0,232670,148186,"BookBook for iPhone 4 — Brown",1,0,0,2,0,1,0,""
+"Order #229821"," ","","flo232672232672@ehousestudio.com","
+,  ","6-20-16-104 Shimomeguro
+Meguro-ku, Tokyo 153-0064","jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1005",516,0,232672,148182,"BookBook for MacBook Pro — Black — 17""",1,0,0,5,0,1,0,""
+"Order #229822"," ","","flo232674232674@ehousestudio.com","
+,  ","Gelvonu g.36 -102
+Vilnius, Vilnius 7144","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1006",517,0,232674,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
+"Order #229823"," ","","flo232676232676@ehousestudio.com","
+,  ","Av. Palmas 200 - 4
+Zapopan, Jalisco 45168","jenelle","k",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1101",518,0,232676,148198,"MagicWand",1,0,0,1,0,1,0,""
+"Order #229824"," ","","flo232678232678@ehousestudio.com","
+,  ","pastelstraat 132
+Almere, Flevoland 1339 JC","jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1102",519,0,232678,148192,"BookArc for MacBook Air",1,0,0,2,0,1,0,""
+"Order #229825"," ","","flo232680232680@ehousestudio.com","
+,  ","Beringstredet 20b
+TromsÃ¸, Norway 9010","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1103",520,0,232680,148159,"BookBook for MacBook Air & Retina — 11""",1,0,0,4,0,1,0,""
+"Order #229826"," ","","flo232682232682@ehousestudio.com","
+,  ","165 Amboy Road
+Morganville, NJ 07751","Macy","White",0.00,0.00,0.00,"FedEx 2 Day","","Sample","n","12-1210",521,0,232682,148188,"BookBook for iPad — Brown",1,0,0,3,0,1,0,""
+"Order #229827"," ","","flo232684232684@ehousestudio.com","
+,  ","2924 River Rd
+Mt Pleasant, IA 52641","Macy","White",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1211",522,0,232684,148197,"PlugBug World",1,0,0,2,0,1,0,""
+"Order #229828"," ","","flo232686232686@ehousestudio.com","
+,  ","4900 1st Ave. S.
+Minneapolis, MN 55419","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","y","12-1215",523,0,232686,148203,"HoverBar for iPad",1,0,0,5,0,1,0,""
+"Order #229829"," ","","flo232688232688@ehousestudio.com","
+,  ","12 Belmont Dr.
+Farmington, UT 84025","Macy","White",0.00,0.00,0.00,"UPS Next Day Air Sav","","Sample","y","12-1216",524,0,232688,148205,"SurfacePad for iPhone — Jet Black — 4/4s",1,0,0,1,0,1,0,""
+"Order #229830"," ","","flo232690232690@ehousestudio.com","
+,  ","1/181 Clovelly Road
+Sydney, NSW 2031","jenelle","k",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1104",525,0,232690,148160,"BookBook for MacBook Air & Retina — 13""",1,0,0,4,0,1,0,""
+"Order #229831"," ","","flo232692232692@ehousestudio.com","
+,  ","5122 Brandenburg Way
+Madison, WI 53718","Macy","White",0.00,0.00,0.00,"FedEx 2 Day","","Sample","y","12-1218",526,0,232692,148204,"SurfacePad for iPhone — Red Pop — 4/4s",1,0,0,1,0,1,0,""
+"Order #229832"," ","","flo232694232694@ehousestudio.com","
+,  ","1832 Corte Del Ranchero
+Alamogordo, NM 88310","Macy","White",0.00,0.00,0.00,"UPS 2nd Day Air","","Sample","y","12-1217",527,0,232694,148206,"SurfacePad for iPhone — Modern White — 4/4s",1,0,0,1,0,1,0,""
+"Order #229833"," ","","flo232696232696@ehousestudio.com","
+,  ","101 roffinghams way
+williamsburg, VA 23185","Macy","White",0.00,0.00,0.00,"FedEx Home Delivery","","Sample","y","12-1229",528,0,232696,148209,"SurfacePad for iPhone — Modern White — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229834"," ","","flo232698232698@ehousestudio.com","
+,  ","161 rue de Habsheim
+Riedisheim, Haut-Rhin 68400","jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1106",529,0,232698,148200,"Compass for iPad — Silver",1,0,0,2,0,1,0,""
+"Order #229835"," ","","flo232700232700@ehousestudio.com","
+,  ","8410 Bridlewood St
+Wichita, KS 67206","Macy","White",0.00,0.00,0.00,"FedEx Standard Overn","","Sample","y","12-1228",530,0,232700,148208,"SurfacePad for iPhone — Jet Black — 5/5s/5c",1,0,0,1,0,1,0,""
+"Order #229836"," ","","flo232702232702@ehousestudio.com","
+,  ","Quadra SCS Quadra 5 Sobreloja 83 Galeria Nova Ouvidor - Unimed
+BrasÃ­lia, DF 70305-000","Macy","White",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1001",531,0,232702,148164,"BookBook for MacBook Pro — Black — 13""",1,0,0,5,0,1,0,""
+"Order #229837"," ","","flo232704232704@ehousestudio.com","
+,  ","9 RUE DES ACACIAS
+LEMPDES, LEMPDES 63370","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1107",532,0,232704,148202,"Compass for iPad — Black",1,0,0,2,0,1,0,""
+"Order #229838"," ","","flo232706232706@ehousestudio.com","
+,  ","Waterville
+Dublin, Leinster 13","jenelle","k",0.00,0.00,0.00,"Call For Routing","","Sample","n","12-1001",533,0,232706,148164,"BookBook for MacBook Pro — Black — 13""",1,0,0,5,0,1,0,""
+"Order #229839"," ","","flo232708232708@ehousestudio.com","
+,  ","Via cassia 1280
+Roma, Italy 189","jenelle","k",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1002",534,0,232708,148165,"BookBook for MacBook Pro — Red — 13""",1,0,0,5,0,1,0,""
+"Order #229840"," ","","flo232710232710@ehousestudio.com","
+,  ","4 Clarinda Park House
+Dun Laoghaire, Dublin Dublin","jenelle","k",0.00,0.00,0.00,"FedEx International","","Sample","y","12-1004",535,0,232710,148181,"BookBook for MacBook Pro — Red — 15""",1,0,0,5,0,1,0,""
+"Order #229842"," ","","flo232719232719@ehousestudio.com","
+,  ","Unit 17, 6 Herbert St.
+St. Leonards, NSW 2065","Jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1107",542,0,232719,148202,"Compass for iPad — Black",1,0,0,2,0,1,0,""
+"Order #229842"," ","","flo232719232719@ehousestudio.com","
+,  ","Unit 17, 6 Herbert St.
+St. Leonards, NSW 2065","Jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1106",543,1,232719,148200,"Compass for iPad — Silver",1,0,0,2,0,1,0,""
+"Order #229844"," ","","flo232727232727@ehousestudio.com",",  ","Rua Monte Alegre, 1457, apto. 93
+São Paulo,  05014-002 ","Jenelle","k",0.00,0.00,0.00,"DHL International","","Sample","y","12-1103",548,0,232727,148159,"BookBook for MacBook Air & Retina — 11""",1,0,0,4,0,1,0,""
+"Order #229983"," ","","flo@ehousestudio.com","
+,  ","BlackOrange, Amstel Business Park, HJE Wencke
+Amsterdam,  1096","Flo","Re Test Sample",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1101",1030,0,233120,148198,"MagicWand",1,0,0,1,0,1,0,""
+"Order #229983"," ","","flo@ehousestudio.com","
+,  ","BlackOrange, Amstel Business Park, HJE Wencke
+Amsterdam,  1096","Flo","Re Test Sample",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1102",1031,1,233120,148192,"BookArc for MacBook Air",1,0,0,2,0,1,0,""
+"Order #229983"," ","","flo@ehousestudio.com","
+,  ","BlackOrange, Amstel Business Park, HJE Wencke
+Amsterdam,  1096","Flo","Re Test Sample",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1005",1032,2,233120,148182,"BookBook for MacBook Pro — Black — 17""",1,0,0,5,0,1,0,""
+"Order #229983"," ","","flo@ehousestudio.com","
+,  ","BlackOrange, Amstel Business Park, HJE Wencke
+Amsterdam,  1096","Flo","Re Test Sample",0.00,0.00,0.00,"UPS WorldWide Expedi","","Sample","y","12-1006",1033,3,233120,148183,"BookBook for MacBook Pro — Red — 17""",1,0,0,5,0,1,0,""
