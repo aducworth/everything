@@ -208,9 +208,43 @@ class AppController {
 	
 	}
 	
+	public function _start_tracker() {
+	
+		$_SESSION['tracking'] = true;
+		exit;
+		
+	}
+	
+	public function _discard_time() {
+	
+		$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+		exit;
+	
+	}
+	
+	public function _keep_time() {
+	
+		$_SESSION['keep_time'] = true;
+	
+	}
+	
+	public function _pause_tracker() {
+	
+		// close open entries for this user
+		$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+		
+		$_SESSION['tracking'] = false;
+		
+		//echo(  "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+		exit;
+		
+	}
+	
 	public function _time_tracker() {
 	
 		$url = $_GET['url'];
+		$_SESSION['tracking'] = isset( $_SESSION['tracking'] )?$_SESSION['tracking']:true;
+		$_SESSION['keep_time'] = isset( $_SESSION['keep_time'] )?$_SESSION['keep_time']:true;
 		
 		unset( $_GET['ajax'] );
 		unset( $_GET['url'] );
@@ -237,42 +271,60 @@ class AppController {
 			
 		}
 			
-		$this->time_entry = $this->time_entries->retrieve('one','*',$where); 
+		$this->time_entry = $this->time_entries->retrieve('one','*',$where);
 		
-		// if we have been on this page for a litle while, just add time and save
-		if( $this->time_entry['id'] && $this->time_entry['open_entry'] ) {
-			
-			$this->time_entry['minutes'] += round( ( time() - strtotime( $this->time_entry['open_entry_time'] ) ) / 60, 2 );
-			$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
-			
-			$this->time_entries->save( $this->time_entry );
-			
-		} else if( $this->time_entry['id'] ) { // if we have been on this task today, but are just switching back to it, open it up
-			
-			// close other entries for this user
-			$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
-			
-			//echo( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
-			
-			$this->time_entry['open_entry'] = 1;
-			$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
-			 
-			$this->time_entries->save( $this->time_entry );
-			
-		} else { // this is our first entry for this page today
+		if( $_SESSION['tracking'] ) { 
 		
-			// close other entries for this user
-			$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+			// if we have been on this page for a litle while, just add time and save
+			if( $this->time_entry['id'] && $this->time_entry['open_entry'] ) {
 			
-			$_GET['user'] = $_SESSION['logged_in_user']['id'];
-			$_GET['minutes'] = '0.00';
-			$_GET['entry_date'] = date('Y-m-d');
-			$_GET['open_entry_time'] = date('Y-m-d H:i:s');
+				$this->additional_time = round( ( time() - strtotime( $this->time_entry['open_entry_time'] ) ) / 60, 2 );
+				
+				// this is a check to see if the timer has been left running
+				if( $this->additional_time < 1 || $_SESSION['keep_time'] ) {
+					
+					$this->time_entry['minutes'] += $this->additional_time;
+					$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
+					
+					$this->time_entries->save( $this->time_entry );
+					
+					$_SESSION['keep_time'] = false;
+				
+				}
+				
+				
+			} else if( $this->time_entry['id'] ) { // if we have been on this task today, but are just switching back to it, open it up
+				
+				// close other entries for this user
+				$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+				
+				//echo( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+				
+				$this->time_entry['open_entry'] = 1;
+				$this->time_entry['open_entry_time'] = date('Y-m-d H:i:s');
+				 
+				$this->time_entries->save( $this->time_entry );
+				
+			} else { // this is our first entry for this page today
 			
-			$this->time_entries->save( $_GET );
+				// close other entries for this user
+				$this->db->query( "update time_entries set open_entry=0 where user = " . $_SESSION['logged_in_user']['id'] );
+				
+				$_GET['user'] = $_SESSION['logged_in_user']['id'];
+				$_GET['minutes'] = '0.00';
+				$_GET['entry_date'] = date('Y-m-d');
+				$_GET['open_entry_time'] = date('Y-m-d H:i:s');
+				
+				$this->time_entries->save( $_GET );
+				
+				$this->time_entry = $_GET;
+				
+			}
 			
-			$this->time_entry = $_GET;
-			
+		} else {
+		
+			//$this->time_entry = $_GET;
+		
 		}
 		
 		$_GET['ajax'] = 'true';

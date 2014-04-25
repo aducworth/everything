@@ -65,7 +65,7 @@
         <? endif; ?>
         
         <ul class="nav navbar-nav navbar-right">
-	      <li><a href="/timesheet" id='hour-update'>Loading...</a></li>
+	      <li><a href="/timesheet" id='hour-update'></a></li>
 	    </ul>
                 
 	  </div>

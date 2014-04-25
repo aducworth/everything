@@ -21,9 +21,9 @@
 			}).done(function(data) {
 			  $('#hour-update').html( data );
 			});
-
 	    	
     	}
+    	
 		$(document).ready(function(){	
 		
 			$( "#sortable" ).sortable();

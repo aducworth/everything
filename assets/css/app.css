@@ -122,3 +122,7 @@
 	text-align: center;
 	width: 100px;
 }
+
+#hour-update a {
+	padding: 0;
+}
