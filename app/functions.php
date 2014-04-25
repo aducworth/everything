@@ -4,6 +4,8 @@ class AppFunctions {
 
 	public function formatTime( $minutes ) {
 	
+		$toreturn = '';
+	
 		$seconds = ( $minutes * 60 );
 	
 		$h_i_s = gmdate("j:G:i:s", $seconds);
@@ -12,23 +14,23 @@ class AppFunctions {
 		
 		if( $h_i_s[0] > 1 ) {
 			
-			return $h_i_s[0] . 'd' . $h_i_s[1] . 'h' . $h_i_s[2] . 'm';
+			$toreturn .= $h_i_s[0] . 'd';
 			
 		}
 		
 		if( $h_i_s[1] > 0 ) {
 			
-			return $h_i_s[1] . 'h' . $h_i_s[2] . 'm';
+			$toreturn .= $h_i_s[1] . 'h';
 			
 		}
 		
 		if( $h_i_s[2] > 0 ) {
 			
-			return $h_i_s[2] . 'm';
+			$toreturn .= $h_i_s[2] . 'm';
 			
 		}
 		
-		return '0m';
+		return $toreturn;
 		
 	}
 	
