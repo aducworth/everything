@@ -57,6 +57,11 @@
 	border-bottom: 1px solid #e7e7e7;
 }
 
+.task-comments .row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .due-date {
 	background: #952715;
 	color: #fff;
@@ -67,8 +72,12 @@
 	text-transform: uppercase;
 }
 
-.task-review-sidebar, .task-review-mainbar {
-	padding: 40px 0;
+.task-review-mainbar {
+	padding: 40px;
+}
+
+.task-review-sidebar {
+	padding: 40px;
 }
 
 .task-review-sidebar {

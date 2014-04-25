@@ -77,7 +77,7 @@
 			
 			
 		</div>
-		<div class="col-md-4 task-review-sidebar">
+		<div class="col-lg-4 task-review-sidebar">
 		
 			<h3>People</h3>
 			
